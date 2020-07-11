@@ -16,6 +16,8 @@ android {
         versionName ext.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -49,6 +51,8 @@ dependencies {
     implementation ext.libraries.coreKtxVersion
     implementation ext.libraries.appCompat
     implementation ext.libraries.constraintlayout
+    implementation ext.libraries.circleImage
+    implementation ext.libraries.recyclerView
 
     implementation ext.libraries.koinViewModel
 
