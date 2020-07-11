@@ -1,2 +1,3 @@
+include ':di'
 include ':app'
-rootProject.name = "Challenge Catho"
+rootProject.name = "challenge_catho"
