@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginEnd="@dimen/view_margin_xsmall"
+    android:animateLayoutChanges="true"
     android:background="@drawable/bg_white_background"
     android:padding="@dimen/view_margin_small">
 
@@ -90,6 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/view_margin_medium"
         android:text="@string/send_cv"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_salary" />
