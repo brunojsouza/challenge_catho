@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="view_margin_xxsmall">4dp</dimen>
+    <dimen name="view_margin_xsmall">8dp</dimen>
+    <dimen name="view_margin_small">16dp</dimen>
+    <dimen name="view_margin_medium">24dp</dimen>
+    <dimen name="view_margin_middle">32dp</dimen>
+
+    <dimen name="corner_radius_default">8dp</dimen>
+</resources>

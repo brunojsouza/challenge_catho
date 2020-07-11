@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Challenge Catho</string>
+    <string name="suggestion_positions_for_you">Sugestões de vagas para você</string>
+    <string name="hashtag_tips_from_recruiters">#DicasDosRecrutadores</string>
+    <string name="send_cv">Enviar currículo</string>
+    <string name="hello_string_template">Olá %s</string>
 </resources>
