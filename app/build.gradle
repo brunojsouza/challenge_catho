@@ -54,6 +54,8 @@ dependencies {
     implementation ext.libraries.circleImage
     implementation ext.libraries.recyclerView
     implementation ext.libraries.cardView
+    implementation ext.libraries.navigationFragment
+    implementation ext.libraries.navigationUiKtx
 
     implementation ext.libraries.koinViewModel
 

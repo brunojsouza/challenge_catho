@@ -20,6 +20,7 @@ ext {
     circleImageVersion = '3.1.0'
     recyclerViewVersion = '1.1.0'
     cardViewVersion = '1.0.0'
+    navigationVersion = '2.2.2'
 
     //Test Libs Version
     junitVersion = '4.12'
@@ -40,6 +41,8 @@ ext {
             koinViewModel               : "org.koin:koin-android-viewmodel:$koinVersion",
             circleImage                 : "de.hdodenhof:circleimageview:$circleImageVersion",
             recyclerView                : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
-            cardView                    : "androidx.cardview:cardview:$cardViewVersion"
+            cardView                    : "androidx.cardview:cardview:$cardViewVersion",
+            navigationFragment         : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            navigationUiKtx              : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
     ]
 }
