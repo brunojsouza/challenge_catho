@@ -28,9 +28,11 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="@dimen/view_margin_small"
+        android:src="@drawable/ic_launcher_foreground"
+        app:civ_border_color="@color/white"
         app:layout_constraintStart_toStartOf="@id/gl_start"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_launcher_foreground" />
+        tools:civ_border_width="2dp" />
 
     <TextView
         android:id="@+id/tv_welcome_label"
@@ -91,5 +93,16 @@
         app:layout_constraintEnd_toEndOf="@id/gl_end"
         app:layout_constraintStart_toStartOf="@id/gl_start"
         app:layout_constraintTop_toBottomOf="@id/rv_positions_list" />
+
+    <br.com.souzabrunoj.challenge_catho.widgets.CardTipsWidget
+        android:id="@+id/ct_Tips"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/view_margin_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/gl_end"
+        app:layout_constraintStart_toStartOf="@id/gl_start"
+        app:layout_constraintTop_toBottomOf="@id/tv_tips_label"
+        app:text="@string/hashtag_tips_from_recruiters" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

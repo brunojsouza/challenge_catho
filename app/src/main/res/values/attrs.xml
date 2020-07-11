@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CardTipsWidget">
+        <attr name="text" format="string"/>
+        <attr name="button_text" format="string"/>
+        <attr name="like_icon" format="reference"/>
+        <attr name="unlike_icon" format="reference"/>
+    </declare-styleable>
+</resources>

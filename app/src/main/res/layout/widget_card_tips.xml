@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.cardview.widget.CardView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/view_margin_small">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_margin_xsmall"
+            android:layout_marginEnd="@dimen/view_margin_small"
+            android:textAppearance="@style/TextAppearance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Desenvolvedor Android Desenvolvedor Android Desenvolvedor Android Desenvolvedor Android Desenvolvedor Android Desenvolvedor Android" />
+
+        <View
+            android:id="@+id/vi_divider"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/view_margin_small"
+            android:background="@color/gray30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <Button
+            android:id="@+id/bt_check_cv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_margin_small"
+            android:layout_marginEnd="@dimen/view_margin_small"
+            android:text="@string/check_cv"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/tv_like_label"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vi_divider" />
+
+        <TextView
+            android:id="@+id/tv_like_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/view_margin_small"
+            android:gravity="center"
+            android:text="@string/found_it_useful"
+            android:textAppearance="@style/TextAppearance"
+            app:layout_constraintBottom_toBottomOf="@id/iv_like"
+            app:layout_constraintEnd_toStartOf="@+id/iv_like"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/bt_check_cv"
+            app:layout_constraintTop_toTopOf="@id/iv_like" />
+
+        <ImageView
+            android:id="@+id/iv_like"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="@dimen/view_margin_small"
+            android:padding="@dimen/view_margin_medium"
+            app:layout_constraintBottom_toBottomOf="@id/bt_check_cv"
+            app:layout_constraintEnd_toStartOf="@+id/iv_unlike"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_like_label"
+            app:layout_constraintTop_toTopOf="@id/bt_check_cv"
+            tools:ignore="contentDescription"
+            tools:src="@drawable/ic_show_password" />
+
+        <ImageView
+            android:id="@+id/iv_unlike"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="@dimen/view_margin_medium"
+            app:layout_constraintBottom_toBottomOf="@id/iv_like"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iv_like"
+            app:layout_constraintTop_toTopOf="@id/iv_like"
+            tools:ignore="contentDescription"
+            tools:src="@drawable/ic_show_password" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>
