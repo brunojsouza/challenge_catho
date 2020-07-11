@@ -1,3 +1,4 @@
+include ':service'
 include ':repository'
 include ':domain'
 include ':di'
