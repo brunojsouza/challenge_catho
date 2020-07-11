@@ -24,14 +24,33 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation project(":repository")
+    implementation project(":di")
+
     implementation ext.libraries.kotlinStdLib
     implementation ext.libraries.coreKtxVersion
     implementation ext.libraries.appCompat
     implementation ext.libraries.constraintlayout
+
+    implementation ext.libraries.koinViewModel
 
     testImplementation ext.libraries.junit
     androidTestImplementation ext.libraries.extJunit
