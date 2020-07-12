@@ -21,6 +21,8 @@ ext {
     recyclerViewVersion = '1.1.0'
     cardViewVersion = '1.0.0'
     navigationVersion = '2.2.2'
+    viewpager2Version = '1.0.0'
+    materialVersion = '1.1.0'
 
     //Test Libs Version
     junitVersion = '4.12'
@@ -42,7 +44,9 @@ ext {
             circleImage                 : "de.hdodenhof:circleimageview:$circleImageVersion",
             recyclerView                : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
             cardView                    : "androidx.cardview:cardview:$cardViewVersion",
-            navigationFragment         : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
-            navigationUiKtx              : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+            navigationFragment          : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            navigationUiKtx             : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+            viewpager2                  : "androidx.viewpager2:viewpager2:$viewpager2Version",
+            material                    : "com.google.android.material:material:$materialVersion",
     ]
 }
