@@ -33,6 +33,14 @@ dependencies {
 
     api ext.libraries.koinCore
 
+    implementation ext.libraries.retrofit
+    implementation ext.libraries.interceptor
+    implementation ext.libraries.coroutinesAdapter
+    implementation ext.libraries.retrofitConverter
+
+    api ext.libraries.coroutinesCore
+    api ext.libraries.coroutinesAndroid
+
     testImplementation ext.libraries.junit
     androidTestImplementation ext.libraries.extJunit
     androidTestImplementation ext.libraries.espressoCore
