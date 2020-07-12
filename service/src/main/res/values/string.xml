@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="network_no_internet_connection">Parece que você está sem internet!\nConecte-se e tente novamente.</string>
+    <string name="internal_server_error">Desculpe pelo transtorno mas ocorreu um erro no nosso servidor, tente novamente mais tarde.</string>
+    <string name="generic_error_message">Aconteceu um erro por aqui. Já estamos trabalhando nisso. Tente novamente em breve.</string>
+</resources>
