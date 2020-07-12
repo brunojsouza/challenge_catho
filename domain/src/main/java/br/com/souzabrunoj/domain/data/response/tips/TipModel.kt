@@ -1,4 +1,4 @@
-package br.com.souzabrunoj.domain.tips
+package br.com.souzabrunoj.domain.data.response.tips
 
 data class TipModel(
     val button: ButtonTipModel,

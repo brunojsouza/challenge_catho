@@ -1,4 +1,4 @@
-package br.com.souzabrunoj.domain.position
+package br.com.souzabrunoj.domain.data.response.position
 
 data class PositionModel(
     val company: String,

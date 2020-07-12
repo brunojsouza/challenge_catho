@@ -1,4 +1,4 @@
-package br.com.souzabrunoj.domain.login
+package br.com.souzabrunoj.domain.data.response.login
 
 data class LoginModel(
     val id: String,

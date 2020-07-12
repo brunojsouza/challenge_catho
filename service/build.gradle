@@ -27,6 +27,8 @@ android {
 }
 
 dependencies {
+    api project("::domain")
+
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation ext.libraries.kotlinStdLib
     implementation ext.libraries.coreKtxVersion
