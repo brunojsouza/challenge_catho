@@ -58,6 +58,7 @@ dependencies {
     implementation ext.libraries.navigationUiKtx
     implementation ext.libraries.viewpager2
     implementation ext.libraries.material
+    implementation ext.libraries.coil
 
     implementation ext.libraries.koinViewModel
 
