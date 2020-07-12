@@ -46,6 +46,7 @@ dependencies {
 
     implementation project(":repository")
     implementation project(":di")
+    implementation project(":domain")
 
     implementation ext.libraries.kotlinStdLib
     implementation ext.libraries.coreKtxVersion

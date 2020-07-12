@@ -30,6 +30,8 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation ext.libraries.kotlinStdLib
     implementation ext.libraries.coreKtxVersion
+    implementation ext.libraries.koinCore
+    implementation ext.libraries.retrofitConverter
 
     testImplementation ext.libraries.junit
     androidTestImplementation ext.libraries.extJunit
