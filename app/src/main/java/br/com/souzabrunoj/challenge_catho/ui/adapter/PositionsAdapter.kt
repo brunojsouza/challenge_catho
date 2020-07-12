@@ -7,28 +7,28 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.souzabrunoj.challenge_catho.R
-import br.com.souzabrunoj.domain.position.Position
+import br.com.souzabrunoj.domain.position.PositionModel
 import kotlinx.android.synthetic.main.item_position.view.*
 
-class PositionsAdapter(private val listOfPositions: List<Position>) : RecyclerView.Adapter<PositionsAdapter.PositionsViewHolder>() {
+class PositionsAdapter(private val listOfPositionModels: List<PositionModel>) : RecyclerView.Adapter<PositionsAdapter.PositionsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PositionsViewHolder {
         return PositionsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_position, parent, false))
     }
 
-    override fun getItemCount(): Int = listOfPositions.size
+    override fun getItemCount(): Int = listOfPositionModels.size
 
     override fun onBindViewHolder(holder: PositionsViewHolder, position: Int) {
-        holder.bind(listOfPositions[position], position)
+        holder.bind(listOfPositionModels[position], position)
     }
 
     inner class PositionsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: Position, position: Int) {
+        fun bind(item: PositionModel, position: Int) {
             with(itemView) {
                 tv_title.text = item.jobAdTile
                 tv_date.text = item.date
                 tv_company.text = item.company
                 tv_location.text = item.getLocation()
-                tv_salary.text = if(item.salary.real.isEmpty()) item.salary.range else item.salary.real
+                tv_salary.text = if(item.salaryModel.real.isEmpty()) item.salaryModel.range else item.salaryModel.real
                  if(item.showSalary){
                      tv_salary.visibility =VISIBLE
                      iv_show_or_hide_password.setImageResource(R.drawable.ic_show_password)
@@ -37,7 +37,7 @@ class PositionsAdapter(private val listOfPositions: List<Position>) : RecyclerVi
                      iv_show_or_hide_password.setImageResource(R.drawable.ic_hide_password)
                 }
                 iv_show_or_hide_password.setOnClickListener {
-                    listOfPositions[position].showSalary = item.showSalary.not()
+                    listOfPositionModels[position].showSalary = item.showSalary.not()
                     notifyItemChanged(position)
                 }
             }

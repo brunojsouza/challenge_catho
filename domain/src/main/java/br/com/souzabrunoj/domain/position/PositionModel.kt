@@ -1,11 +1,11 @@
 package br.com.souzabrunoj.domain.position
 
-data class Position(
+data class PositionModel(
     val company: String,
     val date: String,
     val jobAdTile: String,
     val locations: List<String>,
-    val salary: Salary,
+    val salaryModel: SalaryModel,
     val totalPositions: Int,
     var showSalary: Boolean = true
 ) {
