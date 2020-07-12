@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_marginEnd="@dimen/view_margin_xsmall"
+    tools:maxHeight="200dp"
     android:animateLayoutChanges="true"
     android:background="@drawable/bg_white_background"
     android:padding="@dimen/view_margin_small">

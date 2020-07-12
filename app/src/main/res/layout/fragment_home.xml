@@ -69,8 +69,8 @@
             app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintTop_toBottomOf="@id/iv_profile_image" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_positions_list"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_positions_list"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/view_margin_medium"
@@ -79,12 +79,22 @@
             android:overScrollMode="never"
             android:paddingStart="@dimen/view_margin_small"
             android:paddingEnd="@dimen/view_margin_small"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_suggestion_positions"
             tools:itemCount="3"
             tools:listitem="@layout/item_position" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/vp_positions_list"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
 
         <TextView
             android:id="@+id/tv_tips_label"
@@ -98,7 +108,7 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@id/gl_end"
             app:layout_constraintStart_toStartOf="@id/gl_start"
-            app:layout_constraintTop_toBottomOf="@id/rv_positions_list" />
+            app:layout_constraintTop_toBottomOf="@id/tab_layout" />
 
         <br.com.souzabrunoj.challenge_catho.widgets.CardTipsWidget
             android:id="@+id/ct_Tips"

@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import br.com.souzabrunoj.challenge_catho.R
+import br.com.souzabrunoj.challenge_catho.common.ZoomOutPageTransformer
 import br.com.souzabrunoj.challenge_catho.presentation.HomeViewModel
 import br.com.souzabrunoj.challenge_catho.ui.adapter.PositionsAdapter
 import br.com.souzabrunoj.domain.position.Position
+import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -34,6 +36,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupRecyclerView(list: List<Position>) {
-        rv_positions_list.adapter = PositionsAdapter(list)
+        vp_positions_list.adapter = PositionsAdapter(list)
+        TabLayoutMediator(tab_layout, vp_positions_list) { _, _ -> }.attach()
+        ZoomOutPageTransformer().apply {
+            vp_positions_list.setPageTransformer { page, position -> this.transformPage(page, position) }
+        }
     }
 }
