@@ -10,4 +10,7 @@
     <color name="text_color_primary">#637C8A</color>
     <color name="gray30">#E3E3E3</color>
     <color name="blue">#014990</color>
+    <color name="blue_dark">#1150C4</color>
+    <color name="gray">#637C8A</color>
+    <color name="yellow">#FDA629</color>
 </resources>
