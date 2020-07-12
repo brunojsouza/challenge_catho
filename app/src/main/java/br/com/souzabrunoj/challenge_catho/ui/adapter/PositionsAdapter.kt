@@ -10,7 +10,8 @@ import br.com.souzabrunoj.challenge_catho.R
 import br.com.souzabrunoj.domain.position.PositionModel
 import kotlinx.android.synthetic.main.item_position.view.*
 
-class PositionsAdapter(private val listOfPositionModels: List<PositionModel>) : RecyclerView.Adapter<PositionsAdapter.PositionsViewHolder>() {
+class PositionsAdapter(private val listOfPositionModels: List<PositionModel>, private val buttonClick: () -> Unit) :
+    RecyclerView.Adapter<PositionsAdapter.PositionsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PositionsViewHolder {
         return PositionsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_position, parent, false))
     }
@@ -40,6 +41,7 @@ class PositionsAdapter(private val listOfPositionModels: List<PositionModel>) : 
                     listOfPositionModels[position].showSalary = item.showSalary.not()
                     notifyItemChanged(position)
                 }
+                bt_send_cv.setOnClickListener { buttonClick.invoke() }
             }
         }
     }

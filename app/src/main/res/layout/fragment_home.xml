@@ -116,6 +116,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/view_margin_medium"
             android:layout_marginTop="@dimen/view_margin_small"
+            app:button_background="@drawable/bg_blue_stroke_background"
+            app:button_text_color="@color/blue_dark"
             app:like_icon="@drawable/ic_like"
             app:unlike_icon="@drawable/ic_unlike"
             app:layout_constraintVertical_bias="0"
@@ -123,7 +125,7 @@
             app:layout_constraintEnd_toEndOf="@id/gl_end"
             app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintTop_toBottomOf="@id/tv_tips_label"
-            app:text="@string/hashtag_tips_from_recruiters" />
+            tools:text="@string/hashtag_tips_from_recruiters" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
