@@ -16,7 +16,7 @@ class HomeViewModel: ViewModel() {
             Position(
                 company = "CATHO",
                 date = "Hoje",
-                totalPositions = 1,
+                totalPositions = 2,
                 jobAdTile = "Desenvolvedor Mobile - Android",
                 locations = listOf("Barueri (SP), Belo Horizonte(MG"),
                 salary = Salary(range = "A Combinar", real = "")
@@ -32,7 +32,7 @@ class HomeViewModel: ViewModel() {
             Position(
                 company = "CATHO",
                 date = "Hoje",
-                totalPositions = 1,
+                totalPositions = 3,
                 jobAdTile = "Desenvolvedor Mobile - Android",
                 locations = listOf("Barueri (SP), Belo Horizonte(MG)", "Buzios (RJ)"),
                 salary = Salary(range = "A Combinar", real = "")
