@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import br.com.souzabrunoj.challenge_catho.R
 import br.com.souzabrunoj.challenge_catho.common.ZoomOutPageTransformer
 import br.com.souzabrunoj.challenge_catho.common.applyBold
+import br.com.souzabrunoj.challenge_catho.common.loadImage
 import br.com.souzabrunoj.challenge_catho.presentation.HomeViewModel
 import br.com.souzabrunoj.challenge_catho.ui.adapter.PositionsAdapter
 import br.com.souzabrunoj.domain.login.LoginModel
@@ -18,6 +19,7 @@ import br.com.souzabrunoj.domain.tips.TipModel
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import kotlin.random.Random
 
 class HomeFragment : Fragment() {
 
@@ -71,14 +73,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupTips(tips: List<TipModel>) {
-        with(tips[0]) {
+        val positions = Random.nextInt(0, tips.size)
+        with(tips[positions]) {
             ct_Tips.text = this.description
             ct_Tips.textButton = this.button.label
         }
     }
 
     private fun bindUserData(userData: LoginModel) {
-        tv_welcome_label.text =  getString(R.string.hello_string_template).applyBold(userData.name)
+        tv_welcome_label.text = getString(R.string.hello).applyBold(userData.name)
+        iv_profile_image.loadImage(userData.photoUrl, R.drawable.ic_avatar)
     }
 
     private fun setCvClick() {
