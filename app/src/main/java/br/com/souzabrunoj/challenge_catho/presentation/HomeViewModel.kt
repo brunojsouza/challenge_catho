@@ -3,11 +3,11 @@ package br.com.souzabrunoj.challenge_catho.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.souzabrunoj.domain.login.LoginModel
-import br.com.souzabrunoj.domain.position.PositionModel
-import br.com.souzabrunoj.domain.position.SalaryModel
-import br.com.souzabrunoj.domain.tips.ButtonTipModel
-import br.com.souzabrunoj.domain.tips.TipModel
+import br.com.souzabrunoj.domain.data.response.login.LoginModel
+import br.com.souzabrunoj.domain.data.response.position.PositionModel
+import br.com.souzabrunoj.domain.data.response.position.SalaryModel
+import br.com.souzabrunoj.domain.data.response.tips.ButtonTipModel
+import br.com.souzabrunoj.domain.data.response.tips.TipModel
 
 class HomeViewModel: ViewModel() {
 
