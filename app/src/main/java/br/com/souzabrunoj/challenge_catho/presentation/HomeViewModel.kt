@@ -69,7 +69,7 @@ class HomeViewModel: ViewModel() {
             id = "ee09bd39-4ca2-47ac-9c5e-9c57ba5a26dc",
             name = "Leticia da Silva",
             token = "jpfakdbfprfpirfpwfpwbrpfibwdpcvbspkjvbpkfv",
-            photoUrl = "/assets/ee09bd39-4ca2-47ac-9c5e-9c57ba5a26dc.jpg"
+            photoUrl = "https://picsum.photos/200/300?random=16"
         )
     }
 
@@ -78,6 +78,20 @@ class HomeViewModel: ViewModel() {
             TipModel(
                 button = ButtonTipModel(
                     label = "checar curriculo", show = true, url = "https://www.catho.com.br"
+                ),
+                description = "Antes de enviar o seu currículo, que tal checar a última vez que você o atualizou? Uma informação a mais pode ser o ponta-pé que falta rumo à sua próxima entrevista de emprego.",
+                id = "ea9ff33d-16db-42e8-9913-3fb52f3cb992"
+            ),
+            TipModel(
+                button = ButtonTipModel(
+                    label = "Dica 1", show = true, url = "https://www.catho.com.br"
+                ),
+                description = "Antes de enviar o seu currículo, que tal checar a última vez que você o atualizou? Uma informação a mais pode ser o ponta-pé que falta rumo à sua próxima entrevista de emprego.",
+                id = "ea9ff33d-16db-42e8-9913-3fb52f3cb992"
+            ),
+            TipModel(
+                button = ButtonTipModel(
+                    label = "Dica 2", show = true, url = "https://www.catho.com.br"
                 ),
                 description = "Antes de enviar o seu currículo, que tal checar a última vez que você o atualizou? Uma informação a mais pode ser o ponta-pé que falta rumo à sua próxima entrevista de emprego.",
                 id = "ea9ff33d-16db-42e8-9913-3fb52f3cb992"
