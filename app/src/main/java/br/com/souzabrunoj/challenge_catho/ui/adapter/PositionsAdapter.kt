@@ -29,7 +29,13 @@ class PositionsAdapter(private val listOfPositions: List<Position>) : RecyclerVi
                 tv_company.text = item.company
                 tv_location.text = item.getLocation()
                 tv_salary.text = if(item.salary.real.isEmpty()) item.salary.range else item.salary.real
-                tv_salary.visibility = if(item.showSalary) VISIBLE else INVISIBLE
+                 if(item.showSalary){
+                     tv_salary.visibility =VISIBLE
+                     iv_show_or_hide_password.setImageResource(R.drawable.ic_show_password)
+                } else {
+                     tv_salary.visibility = INVISIBLE
+                     iv_show_or_hide_password.setImageResource(R.drawable.ic_hide_password)
+                }
                 iv_show_or_hide_password.setOnClickListener {
                     listOfPositions[position].showSalary = item.showSalary.not()
                     notifyItemChanged(position)
