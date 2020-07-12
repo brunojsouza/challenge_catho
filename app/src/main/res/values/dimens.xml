@@ -7,4 +7,5 @@
     <dimen name="view_margin_middle">32dp</dimen>
 
     <dimen name="corner_radius_default">8dp</dimen>
+    <dimen name="dots_indicator_size">6dp</dimen>
 </resources>
