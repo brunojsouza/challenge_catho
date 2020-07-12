@@ -4,6 +4,6 @@
     <string name="hashtag_tips_from_recruiters">#DicasDosRecrutadores</string>
     <string name="send_cv">Enviar currículo</string>
     <string name="check_cv">checar currículo</string>
-    <string name="hello_string_template">Olá </string>
+    <string name="hello">Olá </string>
     <string name="found_it_useful">Achou útil?</string>
 </resources>

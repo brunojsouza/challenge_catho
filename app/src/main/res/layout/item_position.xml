@@ -29,7 +29,7 @@
         android:id="@+id/tv_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance"
+        android:textAppearance="@style/TextAppearance.Bold"
         android:textColor="@color/yellow"
         app:layout_constraintBottom_toBottomOf="@id/tv_title"
         app:layout_constraintEnd_toEndOf="parent"
