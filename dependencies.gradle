@@ -23,6 +23,7 @@ ext {
     navigationVersion = '2.2.2'
     viewpager2Version = '1.0.0'
     materialVersion = '1.1.0'
+    coilVersion = '0.11.0'
 
     //Test Libs Version
     junitVersion = '4.12'
@@ -48,5 +49,6 @@ ext {
             navigationUiKtx             : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
             viewpager2                  : "androidx.viewpager2:viewpager2:$viewpager2Version",
             material                    : "com.google.android.material:material:$materialVersion",
+            coil                        : "io.coil-kt:coil:$coilVersion"
     ]
 }
