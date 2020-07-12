@@ -8,4 +8,6 @@
 
     <dimen name="corner_radius_default">8dp</dimen>
     <dimen name="dots_indicator_size">6dp</dimen>
+    <dimen name="button_radius_default">4dp</dimen>
+    <dimen name="button_height">40dp</dimen>
 </resources>
