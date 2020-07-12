@@ -53,6 +53,8 @@
             android:layout_marginEnd="@dimen/view_margin_small"
             android:gravity="center"
             android:text="@string/found_it_useful"
+            android:maxLines="3"
+            android:ellipsize="end"
             android:textAppearance="@style/TextAppearance"
             app:layout_constraintBottom_toBottomOf="@id/iv_like"
             app:layout_constraintEnd_toStartOf="@+id/iv_like"
@@ -62,30 +64,30 @@
 
         <ImageView
             android:id="@+id/iv_like"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/view_margin_small"
-            android:padding="@dimen/view_margin_medium"
+            android:padding="@dimen/view_margin_small"
             app:layout_constraintBottom_toBottomOf="@id/bt_check_cv"
             app:layout_constraintEnd_toStartOf="@+id/iv_unlike"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tv_like_label"
             app:layout_constraintTop_toTopOf="@id/bt_check_cv"
             tools:ignore="contentDescription"
-            tools:src="@drawable/ic_show_password" />
+            tools:src="@drawable/ic_unlike" />
 
         <ImageView
             android:id="@+id/iv_unlike"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:padding="@dimen/view_margin_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/view_margin_small"
             app:layout_constraintBottom_toBottomOf="@id/iv_like"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/iv_like"
             app:layout_constraintTop_toTopOf="@id/iv_like"
             tools:ignore="contentDescription"
-            tools:src="@drawable/ic_show_password" />
+            tools:src="@drawable/ic_like" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>
