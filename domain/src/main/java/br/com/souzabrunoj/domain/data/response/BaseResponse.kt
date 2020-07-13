@@ -18,7 +18,7 @@ open class BaseResponse {
     @SerializedName("message")
     private val defaultMessage: String? = null
 
-    fun getErrorMessage(): String? {
+    fun getMessage(): String? {
         return message ?: errorDescription ?: defaultMessage
     }
 
