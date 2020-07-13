@@ -9,6 +9,7 @@ import br.com.souzabrunoj.domain.data.response.BaseResponse
 import br.com.souzabrunoj.service.R
 import br.com.souzabrunoj.service.networking.data.mock.fromJson
 import retrofit2.HttpException
+import java.net.ConnectException
 import java.net.UnknownHostException
 
 @Suppress("DEPRECATION")
@@ -20,9 +21,9 @@ fun Context.isOnline(): Boolean {
         ni.isConnected && (ni.type == ConnectivityManager.TYPE_WIFI || ni.type == ConnectivityManager.TYPE_MOBILE)
     } else {
         cm.getNetworkCapabilities(cm.activeNetwork)?.run {
-            hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
-                    hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
-                    hasTransport(NetworkCapabilities.TRANSPORT_VPN)
+            hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+                    || hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                    || hasTransport(NetworkCapabilities.TRANSPORT_VPN)
         } ?: false
     }
 }
@@ -30,6 +31,7 @@ fun Context.isOnline(): Boolean {
 fun Throwable.toNetworkingError(): NetworkingError {
     return when (this) {
         is HttpException -> this.toNetworkingError()
+        is ConnectException -> NetworkingError(this.toErrorDescription())
         is UnknownHostException -> NetworkingError(this.toErrorDescription())
         else -> NetworkingError(message = this.message, originalError = this)
     }
