@@ -7,7 +7,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.souzabrunoj.challenge_catho.R
-import br.com.souzabrunoj.domain.position.PositionModel
+import br.com.souzabrunoj.domain.data.response.position.PositionModel
 import kotlinx.android.synthetic.main.item_position.view.*
 
 class PositionsAdapter(private val listOfPositionModels: List<PositionModel>, private val buttonClick: () -> Unit) :
@@ -31,10 +31,10 @@ class PositionsAdapter(private val listOfPositionModels: List<PositionModel>, pr
                 tv_location.text = item.getLocation()
                 tv_salary.text = if(item.salaryModel.real.isEmpty()) item.salaryModel.range else item.salaryModel.real
                  if(item.showSalary){
-                     tv_salary.visibility =VISIBLE
+                     iv_cover_up_password.visibility = INVISIBLE
                      iv_show_or_hide_password.setImageResource(R.drawable.ic_show_password)
                 } else {
-                     tv_salary.visibility = INVISIBLE
+                     iv_cover_up_password.visibility = VISIBLE
                      iv_show_or_hide_password.setImageResource(R.drawable.ic_hide_password)
                 }
                 iv_show_or_hide_password.setOnClickListener {
