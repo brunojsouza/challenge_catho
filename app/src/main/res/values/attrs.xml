@@ -7,5 +7,6 @@
         <attr name="unlike_icon" format="reference" />
         <attr name="button_background" format="reference" />
         <attr name="button_text_color" format="color" />
+        <attr name="loading" format="boolean" />
     </declare-styleable>
 </resources>

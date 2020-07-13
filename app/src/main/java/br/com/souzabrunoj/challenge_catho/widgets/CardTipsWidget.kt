@@ -7,6 +7,7 @@ import androidx.annotation.DrawableRes
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import br.com.souzabrunoj.challenge_catho.R
+import br.com.souzabrunoj.challenge_catho.common.changeVisibility
 import kotlinx.android.synthetic.main.widget_card_tips.view.*
 
 typealias onClick = (() -> Unit)
@@ -29,6 +30,7 @@ class CardTipsWidget @JvmOverloads constructor(
             unlikeIcon = typeArray.getResourceId(R.styleable.CardTipsWidget_unlike_icon, R.drawable.ic_hide_password)
             buttonTextColor = typeArray.getColor(R.styleable.CardTipsWidget_button_text_color, ContextCompat.getColor(context, R.color.white))
             buttonBackground = typeArray.getResourceId(R.styleable.CardTipsWidget_button_background, R.drawable.bg_white_background)
+            loading = typeArray.getBoolean(R.styleable.CardTipsWidget_loading,false)
 
             typeArray.recycle()
         }
@@ -45,6 +47,13 @@ class CardTipsWidget @JvmOverloads constructor(
     var textButton: String? = null
         set(value) {
             value?.let { bt_check_cv.text = it }
+            field = value
+        }
+
+    var loading: Boolean = false
+        set(value) {
+            sm_container_loading.changeVisibility(value)
+            gp_view_container.changeVisibility(value.not())
             field = value
         }
 

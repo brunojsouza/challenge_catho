@@ -8,18 +8,38 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/view_margin_small">
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/view_margin_small" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/view_margin_small" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/gp_view_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tv_title,vi_divider,bt_check_cv,tv_like_label,iv_like,iv_unlike" />
+
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/view_margin_xsmall"
+            android:layout_marginTop="@dimen/view_margin_medium"
             android:layout_marginEnd="@dimen/view_margin_small"
             android:textAppearance="@style/TextAppearance"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Desenvolvedor Android Desenvolvedor Android Desenvolvedor Android Desenvolvedor Android Desenvolvedor Android Desenvolvedor Android" />
 
@@ -29,8 +49,8 @@
             android:layout_height="0.5dp"
             android:layout_marginTop="@dimen/view_margin_small"
             android:background="@color/gray30"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
         <Button
@@ -42,9 +62,12 @@
             android:layout_marginEnd="@dimen/view_margin_small"
             tools:text="@string/check_cv"
             android:textColor="@color/colorPrimary"
+            android:layout_marginBottom="@dimen/view_margin_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintEnd_toStartOf="@+id/tv_like_label"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0"
             app:layout_constraintTop_toBottomOf="@id/vi_divider" />
 
         <TextView
@@ -83,12 +106,32 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/view_margin_small"
             app:layout_constraintBottom_toBottomOf="@id/iv_like"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/iv_like"
             app:layout_constraintTop_toTopOf="@id/iv_like"
             tools:ignore="contentDescription"
             tools:src="@drawable/ic_like" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/sm_container_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shimmer_auto_start="true"
+            app:shimmer_highlight_color="@color/white"
+            tools:visibility="gone">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/shape_rectangle_highlight"
+                tools:ignore="contentDescription" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>
