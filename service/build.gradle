@@ -19,7 +19,11 @@ android {
     }
 
     buildTypes {
+        debug{
+            buildConfigField "String", "BASE_URL", "\"http://localhost:4040/\""
+        }
         release {
+            buildConfigField "String", "BASE_URL",  "\"http://localhost:4040/\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -27,7 +31,7 @@ android {
 }
 
 dependencies {
-    implementation project("::domain")
+    api project("::domain")
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation ext.libraries.kotlinStdLib
