@@ -7,8 +7,7 @@ import android.os.Build
 import br.com.souzabrunoj.domain.common.getStringFromResources
 import br.com.souzabrunoj.domain.data.response.BaseResponse
 import br.com.souzabrunoj.service.R
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import br.com.souzabrunoj.service.networking.data.mock.fromJson
 import retrofit2.HttpException
 import java.net.UnknownHostException
 
@@ -37,7 +36,7 @@ fun Throwable.toNetworkingError(): NetworkingError {
 }
 
 private fun HttpException.toNetworkingError(): NetworkingError {
-    val errorResponse = response()?.errorBody()?.string()?.run { jsonTo<BaseResponse>() }
+    val errorResponse = response()?.errorBody()?.string()?.run { fromJson<BaseResponse>(this) }
 
     return NetworkingError(
         message = message(),
@@ -62,14 +61,5 @@ private fun Int.toHttpCodeDescriptionIfNeeded(): String? {
         in 0..499 -> getStringFromResources(R.string.generic_error_message)
         in 500..599 -> getStringFromResources(R.string.internal_server_error)
         else -> null
-    }
-}
-
-inline fun <reified T> String.jsonTo(): T? {
-    return try {
-        Gson().fromJson(this, object : TypeToken<T>() {}.type)
-    } catch (e: Throwable) {
-        e.printStackTrace()
-        null
     }
 }
