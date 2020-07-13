@@ -38,7 +38,7 @@ class HomeFragment : BaseFragment() {
 
     private fun setListeners() {
         ct_Tips.buttonClick = {
-            Toast.makeText(requireContext(), "Button Click", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.cv_sent), Toast.LENGTH_SHORT).show()
         }
         ct_Tips.likeClick = {
             Toast.makeText(requireContext(), "Like Click", Toast.LENGTH_SHORT).show()
@@ -70,7 +70,9 @@ class HomeFragment : BaseFragment() {
         viewModel.loginObserver().observe(viewLifecycleOwner, Observer { state ->
             state?.handleIt(
                 success = { bindUserData(it) },
-                failure = { handleFailure(it) }
+                failure = { handleFailure(it) },
+                loading = { tv_welcome_label.loading = true },
+                stopLoading = { tv_welcome_label.loading = false }
             )
         })
     }

@@ -7,6 +7,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.souzabrunoj.challenge_catho.R
+import br.com.souzabrunoj.domain.common.getStringFromResources
 import br.com.souzabrunoj.domain.data.response.position.PositionModel
 import kotlinx.android.synthetic.main.item_position.view.*
 
@@ -41,7 +42,10 @@ class PositionsAdapter(private val listOfPositionModels: List<PositionModel>, pr
                     listOfPositionModels[position].showSalary = item.showSalary.not()
                     notifyItemChanged(position)
                 }
-                bt_send_cv.setOnClickListener { buttonClick.invoke() }
+                bt_send_cv.setOnClickListener {
+                    buttonClick.invoke()
+                    bt_send_cv.text = getStringFromResources(R.string.cv_sent)
+                }
             }
         }
     }

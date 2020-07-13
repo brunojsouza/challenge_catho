@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,22 +33,16 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="@dimen/view_margin_small"
-            tools:src="@drawable/ic_avatar"
+            android:src="@drawable/ic_avatar"
             app:civ_border_color="@color/white"
+            app:civ_border_width="2dp"
             app:layout_constraintStart_toStartOf="@id/gl_start"
-            app:layout_constraintTop_toTopOf="parent"
-            app:civ_border_width="2dp" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <br.com.souzabrunoj.challenge_catho.widgets.TextViewWidget
             android:id="@+id/tv_welcome_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="2"
-            android:textAppearance="@style/TextAppearance"
-            android:textColor="@color/white"
-            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_profile_image"
             app:layout_constraintEnd_toEndOf="@id/gl_end"
             app:layout_constraintStart_toEndOf="@id/iv_profile_image"
@@ -127,14 +121,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/view_margin_middle"
+            android:layout_marginEnd="@dimen/view_margin_small"
             android:maxLines="2"
             android:text="@string/hashtag_tips_from_recruiters"
             android:textAppearance="@style/TextAppearance.Bold"
             android:textColor="@color/white"
-            android:layout_marginEnd="@dimen/view_margin_small"
             android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@id/vi_tips_icon"
             app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintEnd_toStartOf="@id/vi_tips_icon"
             app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintTop_toBottomOf="@id/tab_layout" />
 
@@ -152,17 +146,17 @@
             android:id="@+id/ct_Tips"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/view_margin_medium"
             android:layout_marginTop="@dimen/view_margin_small"
+            android:layout_marginBottom="@dimen/view_margin_medium"
             app:button_background="@drawable/bg_blue_stroke_background"
             app:button_text_color="@color/blue_dark"
-            app:like_icon="@drawable/ic_like"
-            app:unlike_icon="@drawable/ic_unlike"
-            app:layout_constraintVertical_bias="0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/gl_end"
             app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintTop_toBottomOf="@id/tv_tips_label"
+            app:layout_constraintVertical_bias="0"
+            app:like_icon="@drawable/ic_like"
+            app:unlike_icon="@drawable/ic_unlike"
             tools:text="@string/hashtag_tips_from_recruiters" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,9 +28,11 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
 
     fun doLogin() {
         login.postLoading()
-        viewModelScope.launch {
-            repository.doLogin().either(::handleLoginFailure, ::handleLoginSuccess)
-        }
+        Handler().postDelayed({
+            viewModelScope.launch {
+                repository.doLogin().either(::handleLoginFailure, ::handleLoginSuccess)
+            }
+        }, 2000L)
     }
 
     private fun handleLoginSuccess(response: LoginModel) {
