@@ -7,7 +7,7 @@ interface PreferencesService {
 
     fun saveUser(user: LoginModel)
 
-    fun getCredentials(): Pair<String, String>
+    fun getCredentials():  String
 
     fun hasValidCredentials(): Boolean
 

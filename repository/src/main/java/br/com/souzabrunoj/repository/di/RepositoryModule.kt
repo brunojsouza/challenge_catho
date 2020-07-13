@@ -5,5 +5,5 @@ import br.com.souzabrunoj.repository.RepositoryImpl
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single<Repository> { RepositoryImpl(get()) }
+    single<Repository> { RepositoryImpl(get(), get()) }
 }

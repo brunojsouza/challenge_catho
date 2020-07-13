@@ -7,7 +7,10 @@ import br.com.souzabrunoj.domain.data.response.position.PositionModel
 import br.com.souzabrunoj.domain.data.response.tips.TipModel
 
 interface Repository {
-    suspend fun doLogin(): Either<Failure.ServiceError, LoginModel>
+
+    suspend fun getApiKey():  Either<Failure.ServiceError, Unit>
+
+    suspend fun doLogin(userId: String): Either<Failure.ServiceError, LoginModel>
 
     suspend fun getPositions(): Either<Failure.ServiceError, List<PositionModel>>
 

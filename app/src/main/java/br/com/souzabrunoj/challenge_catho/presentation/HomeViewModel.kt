@@ -26,7 +26,22 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate() {
+        getApiKeys()
+    }
+
+    private fun getApiKeys() {
+        viewModelScope.launch {
+            repository.getApiKey().either(::handleGetApiFailure, ::handleGetApisSuccess)
+        }
+    }
+
+    @Suppress("UNUSED_PARAMETER")
+    private fun handleGetApisSuccess(response: Unit) {
         doLogin()
+    }
+
+    private fun handleGetApiFailure(failure: Failure) {
+        login.postFailure(failure)
     }
 
     private fun doLogin() {
@@ -35,7 +50,7 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
         positions.postLoading()
         Handler().postDelayed({
             viewModelScope.launch {
-                repository.doLogin().either(::handleLoginFailure, ::handleLoginSuccess)
+                repository.doLogin("ee09bd39-4ca2-47ac-9c5e-9c57ba5a26dc").either(::handleLoginFailure, ::handleLoginSuccess)
             }
         }, 2000L)
     }
