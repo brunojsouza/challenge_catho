@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CardTipsWidget">
+    <declare-styleable name="GeneralAttributes">
         <attr name="text" format="string" />
+        <attr name="loading" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CardTipsWidget">
+        <attr name="text" />
         <attr name="button_text" format="string" />
         <attr name="like_icon" format="reference" />
         <attr name="unlike_icon" format="reference" />
         <attr name="button_background" format="reference" />
         <attr name="button_text_color" format="color" />
-        <attr name="loading" format="boolean" />
+        <attr name="loading" />
+    </declare-styleable>
+
+    <declare-styleable name="TextViewWidget">
+        <attr name="android:textColor" />
+        <attr name="text" />
+        <attr name="loading" />
     </declare-styleable>
 </resources>
