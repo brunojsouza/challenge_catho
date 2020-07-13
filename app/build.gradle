@@ -60,8 +60,8 @@ dependencies {
     implementation ext.libraries.viewpager2
     implementation ext.libraries.material
     implementation ext.libraries.coil
-
     implementation ext.libraries.koinViewModel
+    implementation ext.libraries.shimmer
 
     testImplementation ext.libraries.junit
     androidTestImplementation ext.libraries.extJunit
