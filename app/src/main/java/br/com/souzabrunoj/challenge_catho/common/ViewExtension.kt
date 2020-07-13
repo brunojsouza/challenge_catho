@@ -2,6 +2,8 @@ package br.com.souzabrunoj.challenge_catho.common
 
 import android.content.Context
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
@@ -13,6 +15,18 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 fun View.invisible() {
     this.visibility = View.INVISIBLE
+}
+
+fun View.visible() {
+    this.visibility = VISIBLE
+}
+
+fun View.gone() {
+    this.visibility = GONE
+}
+
+fun View.changeVisibility(isVisible: Boolean) {
+    takeIf { isVisible }?.let { this.visible() } ?: run { this.gone() }
 }
 
 fun ImageView.loadImage(url: String, placeholder: Int = 0) {
