@@ -1,0 +1,60 @@
+[
+  {
+    "jobAdTile": "Desenvolvedor Mobile - Android",
+    "company": "CATHO",
+    "date": "Hoje",
+    "totalPositions": 1,
+    "locations": [
+      "Barueri (SP)"
+    ],
+    "salary": {
+      "real": "",
+      "range": "A Combinar"
+    }
+  },
+  {
+    "jobAdTile": "Desenvolvedor Mobile - Android",
+    "company": "CATHO",
+    "date": "Hoje",
+    "totalPositions": 2,
+    "locations": [
+      "Barueri (SP)",
+      "Sao Paulo (SP)"
+    ],
+    "salary": {
+      "real": "R$ 10.000,00",
+      "range": ""
+    }
+  },
+  {
+    "jobAdTile": "Desenvolvedor Mobile - Android",
+    "company": "CATHO",
+    "date": "Hoje",
+    "totalPositions": 3,
+    "locations": [
+      "Barueri (SP)",
+      "Sao Paulo (SP)",
+      "Belo Horizonte (MG)"
+    ],
+    "salary": {
+      "real": "",
+      "range": "A Combinar"
+    }
+  },
+  {
+    "jobAdTile": "Desenvolvedor Mobile - Android",
+    "company": "CATHO",
+    "date": "Hoje",
+    "totalPositions": 4,
+    "locations": [
+      "Barueri (SP)",
+      "Sao Paulo (SP)",
+      "Belo Horizonte (MG)",
+      "Manaus (AM)"
+    ],
+    "salary": {
+      "real": "R$ 8.000,00",
+      "range": ""
+    }
+  }
+]
