@@ -15,16 +15,17 @@ import br.com.souzabrunoj.domain.data.response.position.PositionModel
 import br.com.souzabrunoj.domain.data.response.tips.TipModel
 import br.com.souzabrunoj.repository.Repository
 import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 class HomeViewModel(private val repository: Repository) : ViewModel() {
 
     private val positions = MutableLiveData<ViewState<List<PositionModel>>>()
     private val login = MutableLiveData<ViewState<LoginModel>>()
-    private val tips = MutableLiveData<ViewState<List<TipModel>>>()
+    private val tips = MutableLiveData<ViewState<TipModel>>()
 
     fun positionsObserver(): LiveData<ViewState<List<PositionModel>>> = positions
     fun loginObserver(): LiveData<ViewState<LoginModel>> = login
-    fun tipObserver(): LiveData<ViewState<List<TipModel>>> = tips
+    fun tipObserver(): LiveData<ViewState<TipModel>> = tips
 
     fun doLogin() {
         login.postLoading()
@@ -75,7 +76,8 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
     }
 
     private fun handGetTipsSuccess(response: List<TipModel>) {
-        tips.postSuccess(response)
+        val position = Random.nextInt(0, response.size)
+        tips.postSuccess(response[position])
     }
 
     private fun handleGetTipsFailure(failure: Failure) {

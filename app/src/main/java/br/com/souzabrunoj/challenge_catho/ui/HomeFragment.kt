@@ -17,7 +17,6 @@ import br.com.souzabrunoj.domain.data.response.tips.TipModel
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
-import kotlin.random.Random
 
 class HomeFragment : BaseFragment() {
 
@@ -60,7 +59,7 @@ class HomeFragment : BaseFragment() {
 
         viewModel.tipObserver().observe(viewLifecycleOwner, Observer { state ->
             state?.handleIt(
-                success = { setupTips(it) },
+                success = { setupTip(it) },
                 failure = { handleFailure(it) },
                 loading = { ct_Tips.loading = true },
                 stopLoading = { ct_Tips.loading = false }
@@ -85,12 +84,9 @@ class HomeFragment : BaseFragment() {
         }
     }
 
-    private fun setupTips(tips: List<TipModel>) {
-        val positions = Random.nextInt(0, tips.size)
-        with(tips[positions]) {
-            ct_Tips.text = this.description
-            ct_Tips.textButton = this.button.label
-        }
+    private fun setupTip(tip: TipModel) {
+        ct_Tips.text = tip.description
+        ct_Tips.textButton = tip.button.label
     }
 
     private fun bindUserData(userData: LoginModel) {
