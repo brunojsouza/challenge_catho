@@ -1,5 +1,6 @@
 package br.com.souzabrunoj.challenge_catho.presentation
 
+import android.os.Handler
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -42,9 +43,13 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
 
     fun getPositions() {
         positions.postLoading()
-        viewModelScope.launch {
-            repository.getPositions().either(::handleGetPositionsFailure, ::handleGetPositionsSuccess)
-        }
+        Handler().postDelayed(
+            {
+                viewModelScope.launch {
+                    repository.getPositions().either(::handleGetPositionsFailure, ::handleGetPositionsSuccess)
+                }
+            }, 2000L
+        )
     }
 
     private fun handleGetPositionsSuccess(response: List<PositionModel>) {
@@ -58,9 +63,13 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
 
     fun getTips() {
         tips.postLoading()
-        viewModelScope.launch {
-            repository.getTips().either(::handleGetTipsFailure, ::handGetTipsSuccess)
-        }
+        Handler().postDelayed(
+            {
+                viewModelScope.launch {
+                    repository.getTips().either(::handleGetTipsFailure, ::handGetTipsSuccess)
+                }
+            }, 2000L
+        )
     }
 
     private fun handGetTipsSuccess(response: List<TipModel>) {

@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import br.com.souzabrunoj.challenge_catho.R
-import br.com.souzabrunoj.challenge_catho.common.ZoomOutPageTransformer
-import br.com.souzabrunoj.challenge_catho.common.applyBold
-import br.com.souzabrunoj.challenge_catho.common.loadImage
+import br.com.souzabrunoj.challenge_catho.common.*
 import br.com.souzabrunoj.challenge_catho.presentation.HomeViewModel
 import br.com.souzabrunoj.challenge_catho.ui.adapter.PositionsAdapter
 import br.com.souzabrunoj.challenge_catho.ui.base.BaseFragment
@@ -54,7 +52,9 @@ class HomeFragment : BaseFragment() {
         viewModel.positionsObserver().observe(viewLifecycleOwner, Observer { state ->
             state?.handleIt(
                 success = { setupRecyclerView(it) },
-                failure = { handleFailure(it) }
+                failure = { handleFailure(it) },
+                loading = { container_position_loading.visible() },
+                stopLoading = { container_position_loading.gone() }
             )
         })
 
