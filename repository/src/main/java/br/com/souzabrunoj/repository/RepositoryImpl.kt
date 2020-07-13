@@ -4,8 +4,10 @@ import br.com.souzabrunoj.domain.common.*
 import br.com.souzabrunoj.domain.data.response.login.LoginModel
 import br.com.souzabrunoj.domain.data.response.position.PositionModel
 import br.com.souzabrunoj.domain.data.response.tips.TipModel
+import br.com.souzabrunoj.domain.data.response.tips.survey.SurveyModel
 import br.com.souzabrunoj.repository.mappers.toLoginModel
 import br.com.souzabrunoj.repository.mappers.toPositionModel
+import br.com.souzabrunoj.repository.mappers.toSurveyModel
 import br.com.souzabrunoj.repository.mappers.toTipModel
 import br.com.souzabrunoj.service.networking.Networking
 import br.com.souzabrunoj.service.networking.data.local.PreferencesService
@@ -31,4 +33,8 @@ class RepositoryImpl(private val networking: Networking, private val preferences
 
     override suspend fun getTips(): Either<Failure.ServiceError, List<TipModel>> =
         shiftThread { Success(networking.getTips(preferencesService.getApiKey(TIPS_KEY)).map { it.toTipModel() }) }
+
+    override suspend fun sendTipSurvey(tipId: String, interactionType: String): Either<Failure.ServiceError, SurveyModel> =
+        shiftThread { Success(networking.sendTipSurvey(preferencesService.getApiKey(SURVEY_KEY), tipId, interactionType).toSurveyModel()) }
+
 }

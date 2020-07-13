@@ -18,6 +18,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
+const val LIKE_SURVEY = "like"
+const val UNLIKE_SURVEY = "dislike"
+
 class HomeFragment : BaseFragment() {
 
     private val viewModel: HomeViewModel by viewModel()
@@ -47,10 +50,10 @@ class HomeFragment : BaseFragment() {
             Toast.makeText(requireContext(), getString(R.string.cv_sent), Toast.LENGTH_SHORT).show()
         }
         ct_Tips.likeClick = {
-            Toast.makeText(requireContext(), "Like Click", Toast.LENGTH_SHORT).show()
+           viewModel.sendTipSurvey(LIKE_SURVEY)
         }
         ct_Tips.unLikeClick = {
-            Toast.makeText(requireContext(), "UnLike Click", Toast.LENGTH_SHORT).show()
+            viewModel.sendTipSurvey(UNLIKE_SURVEY)
         }
     }
 

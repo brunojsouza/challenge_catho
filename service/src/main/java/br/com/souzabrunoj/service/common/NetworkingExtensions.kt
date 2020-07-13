@@ -44,7 +44,7 @@ private fun HttpException.toNetworkingError(): NetworkingError {
         message = message(),
         errorCode = errorResponse?.getErrorCode(),
         httpCode = code(),
-        errorDescription = errorResponse?.getErrorMessage() ?: code().toHttpCodeDescriptionIfNeeded(),
+        errorDescription = errorResponse?.getMessage() ?: code().toHttpCodeDescriptionIfNeeded(),
         httpErrorDescription = message,
         originalError = this
     )

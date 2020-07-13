@@ -26,7 +26,7 @@ class PreferenceServiceImpl(private val context: Context) : PreferencesService {
             putString(AUTH_KEY, "${keys.authKey}")
             putString(SUGGESTION_KEY, "${keys.suggestionKey}")
             putString(TIPS_KEY, "${keys.tipsKey}")
-            putString(SURVEY_KEY, "${keys.authKey}")
+            putString(SURVEY_KEY, "${keys.surveyKey}")
             commit()
         }
     }

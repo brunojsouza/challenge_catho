@@ -10,12 +10,13 @@ import br.com.souzabrunoj.domain.common.Failure
 import br.com.souzabrunoj.domain.data.response.login.LoginModel
 import br.com.souzabrunoj.domain.data.response.position.PositionModel
 import br.com.souzabrunoj.domain.data.response.tips.TipModel
+import br.com.souzabrunoj.domain.data.response.tips.survey.SurveyModel
 import br.com.souzabrunoj.repository.Repository
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class HomeViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
-
+    private lateinit var tip: TipModel
     private val positions = MutableLiveData<ViewState<List<PositionModel>>>()
     private val login = MutableLiveData<ViewState<LoginModel>>()
     private val tips = MutableLiveData<ViewState<TipModel>>()
@@ -95,10 +96,26 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
 
     private fun handGetTipsSuccess(response: List<TipModel>) {
         val position = Random.nextInt(0, response.size)
-        tips.postSuccess(response[position])
+        tip = response[position]
+        tips.postSuccess(tip)
     }
 
     private fun handleGetTipsFailure(failure: Failure) {
+        tips.postFailure(failure)
+    }
+
+    fun sendTipSurvey(interactionType: String) {
+        viewModelScope.launch {
+            repository.sendTipSurvey(tipId = tip.id, interactionType = interactionType).either(::handleTipSurveyFailure, ::handTipSurveySuccess)
+        }
+    }
+
+    @Suppress("UNUSED_PARAMETER")
+    private fun handTipSurveySuccess(response: SurveyModel) {
+        tips.postSuccess(tip)
+    }
+
+    private fun handleTipSurveyFailure(failure: Failure) {
         tips.postFailure(failure)
     }
 }
