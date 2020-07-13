@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="?actionBarSize"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clInformativeBottomSheetContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/view_margin_small">
+
+        <ImageView
+            android:id="@+id/ic_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_margin_xsmall"
+            android:src="@drawable/ic_rectangle_bottom_sheet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="contentDescription"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_margin_small"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.Bold"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ic_top"
+            tools:text="Desenvolvedor Android" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_margin_small"
+            android:textAppearance="@style/TextAppearance"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_title"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="Google" />
+
+
+        <Button
+            android:id="@+id/bt_ok"
+            style="@style/Button.TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_margin_medium"
+            android:layout_marginBottom="@dimen/view_margin_xsmall"
+            android:background="@drawable/bg_dark_blue_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_description"
+            app:layout_constraintVertical_bias="0"
+            tools:text="@string/ok" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
