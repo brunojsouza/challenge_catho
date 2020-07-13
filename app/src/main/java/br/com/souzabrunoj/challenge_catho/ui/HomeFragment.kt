@@ -61,7 +61,9 @@ class HomeFragment : BaseFragment() {
         viewModel.tipObserver().observe(viewLifecycleOwner, Observer { state ->
             state?.handleIt(
                 success = { setupTips(it) },
-                failure = { handleFailure(it) }
+                failure = { handleFailure(it) },
+                loading = { ct_Tips.loading = true },
+                stopLoading = { ct_Tips.loading = false }
             )
         })
 
