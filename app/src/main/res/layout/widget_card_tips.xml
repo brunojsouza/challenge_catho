@@ -54,31 +54,31 @@
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
         <Button
-            style="@style/Button.TextAppearance"
             android:id="@+id/bt_check_cv"
+            style="@style/Button.TextAppearance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/view_margin_small"
             android:layout_marginEnd="@dimen/view_margin_small"
-            tools:text="@string/check_cv"
-            android:textColor="@color/colorPrimary"
             android:layout_marginBottom="@dimen/view_margin_small"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintEnd_toStartOf="@+id/tv_like_label"
             app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/vi_divider"
             app:layout_constraintVertical_bias="0"
-            app:layout_constraintTop_toBottomOf="@id/vi_divider" />
+            tools:text="@string/check_cv" />
 
         <TextView
             android:id="@+id/tv_like_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/view_margin_small"
-            android:gravity="center"
-            android:text="@string/found_it_useful"
-            android:maxLines="3"
             android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="3"
+            android:text="@string/found_it_useful"
             android:textAppearance="@style/TextAppearance"
             app:layout_constraintBottom_toBottomOf="@id/iv_like"
             app:layout_constraintEnd_toStartOf="@+id/iv_like"
@@ -132,6 +132,5 @@
                 android:src="@drawable/shape_rectangle_highlight"
                 tools:ignore="contentDescription" />
         </com.facebook.shimmer.ShimmerFrameLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>
