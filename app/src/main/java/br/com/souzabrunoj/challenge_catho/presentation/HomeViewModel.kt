@@ -1,10 +1,7 @@
 package br.com.souzabrunoj.challenge_catho.presentation
 
 import android.os.Handler
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import br.com.souzabrunoj.challenge_catho.common.ViewState
 import br.com.souzabrunoj.challenge_catho.common.postFailure
 import br.com.souzabrunoj.challenge_catho.common.postLoading
@@ -17,7 +14,7 @@ import br.com.souzabrunoj.repository.Repository
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
-class HomeViewModel(private val repository: Repository) : ViewModel() {
+class HomeViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
 
     private val positions = MutableLiveData<ViewState<List<PositionModel>>>()
     private val login = MutableLiveData<ViewState<LoginModel>>()
@@ -27,8 +24,15 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
     fun loginObserver(): LiveData<ViewState<LoginModel>> = login
     fun tipObserver(): LiveData<ViewState<TipModel>> = tips
 
-    fun doLogin() {
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    fun onCreate() {
+        doLogin()
+    }
+
+    private fun doLogin() {
         login.postLoading()
+        tips.postLoading()
+        positions.postLoading()
         Handler().postDelayed({
             viewModelScope.launch {
                 repository.doLogin().either(::handleLoginFailure, ::handleLoginSuccess)
@@ -38,14 +42,15 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
 
     private fun handleLoginSuccess(response: LoginModel) {
         login.postSuccess(response)
+        getPositions()
+        getTips()
     }
 
     private fun handleLoginFailure(failure: Failure) {
         login.postFailure(failure)
     }
 
-    fun getPositions() {
-        positions.postLoading()
+    private fun getPositions() {
         Handler().postDelayed(
             {
                 viewModelScope.launch {
@@ -63,15 +68,13 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
         positions.postFailure(failure)
     }
 
-
-    fun getTips() {
-        tips.postLoading()
+    private fun getTips() {
         Handler().postDelayed(
             {
                 viewModelScope.launch {
                     repository.getTips().either(::handleGetTipsFailure, ::handGetTipsSuccess)
                 }
-            }, 2000L
+            }, 3000L
         )
     }
 
