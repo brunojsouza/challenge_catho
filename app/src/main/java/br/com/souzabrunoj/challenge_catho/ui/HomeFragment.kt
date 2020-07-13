@@ -13,9 +13,9 @@ import br.com.souzabrunoj.challenge_catho.common.applyBold
 import br.com.souzabrunoj.challenge_catho.common.loadImage
 import br.com.souzabrunoj.challenge_catho.presentation.HomeViewModel
 import br.com.souzabrunoj.challenge_catho.ui.adapter.PositionsAdapter
-import br.com.souzabrunoj.domain.login.LoginModel
-import br.com.souzabrunoj.domain.position.PositionModel
-import br.com.souzabrunoj.domain.tips.TipModel
+import br.com.souzabrunoj.domain.data.response.login.LoginModel
+import br.com.souzabrunoj.domain.data.response.position.PositionModel
+import br.com.souzabrunoj.domain.data.response.tips.TipModel
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
