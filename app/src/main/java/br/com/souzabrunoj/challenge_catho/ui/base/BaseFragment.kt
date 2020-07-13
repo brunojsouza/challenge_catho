@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import br.com.souzabrunoj.challenge_catho.R
 import br.com.souzabrunoj.challenge_catho.widgets.bottom_sheet.ButtonAction
 import br.com.souzabrunoj.challenge_catho.widgets.bottom_sheet.InformationBottomSheet
+import br.com.souzabrunoj.domain.common.Failure
 
 open class BaseFragment : Fragment() {
 
@@ -15,5 +16,9 @@ open class BaseFragment : Fragment() {
     ) {
         InformationBottomSheet.newInstance(textButton = textButton, title = title, description = description, buttonClick = callback)
             .show(childFragmentManager, this::class.java.simpleName)
+    }
+
+    protected fun handleFailure(failure: Failure) {
+        showInformationBottomSheet(description = failure.message)
     }
 }

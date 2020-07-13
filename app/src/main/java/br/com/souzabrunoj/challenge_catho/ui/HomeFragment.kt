@@ -51,16 +51,25 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun addObservers() {
-        viewModel.positionsObserver().observe(viewLifecycleOwner, Observer { positions ->
-            setupRecyclerView(positions)
+        viewModel.positionsObserver().observe(viewLifecycleOwner, Observer { state ->
+            state?.handleIt(
+                success = { setupRecyclerView(it) },
+                failure = { handleFailure(it) }
+            )
         })
 
-        viewModel.tipObserver().observe(viewLifecycleOwner, Observer { list ->
-            setupTips(list)
+        viewModel.tipObserver().observe(viewLifecycleOwner, Observer { state ->
+            state?.handleIt(
+                success = { setupTips(it) },
+                failure = { handleFailure(it) }
+            )
         })
 
-        viewModel.loginObserver().observe(viewLifecycleOwner, Observer { userData ->
-            bindUserData(userData)
+        viewModel.loginObserver().observe(viewLifecycleOwner, Observer { state ->
+            state?.handleIt(
+                success = { bindUserData(it) },
+                failure = { handleFailure(it) }
+            )
         })
     }
 
