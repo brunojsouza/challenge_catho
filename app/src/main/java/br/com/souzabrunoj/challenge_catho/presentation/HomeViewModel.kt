@@ -124,8 +124,9 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
         }
     }
 
+    @Suppress("UNUSED_PARAMETER")
     private fun handleTipSurveyFailure(failure: Failure) {
-        tips.postFailure(failure)
+
     }
 
     private fun choiceTipToShow() {
