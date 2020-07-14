@@ -90,6 +90,16 @@ class HomeFragment : BaseFragment() {
                 stopLoading = { ct_Tips.loading = false }
             )
         })
+
+        viewModel.likeObserver().observe(viewLifecycleOwner, Observer {
+            ct_Tips.changeLikeImageIcon(R.color.green)
+            ct_Tips.changeUnLikeImageIcon(R.color.gray)
+        })
+
+        viewModel.unlikeObserver().observe(viewLifecycleOwner, Observer {
+            ct_Tips.changeUnLikeImageIcon(R.color.red)
+            ct_Tips.changeLikeImageIcon(R.color.gray)
+        })
     }
 
     private fun setupRecyclerView(list: List<PositionModel>) {

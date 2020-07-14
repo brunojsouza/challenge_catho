@@ -6,6 +6,8 @@ import br.com.souzabrunoj.challenge_catho.common.ViewState
 import br.com.souzabrunoj.challenge_catho.common.postFailure
 import br.com.souzabrunoj.challenge_catho.common.postLoading
 import br.com.souzabrunoj.challenge_catho.common.postSuccess
+import br.com.souzabrunoj.challenge_catho.ui.LIKE_SURVEY
+import br.com.souzabrunoj.challenge_catho.ui.UNLIKE_SURVEY
 import br.com.souzabrunoj.domain.common.Failure
 import br.com.souzabrunoj.domain.data.response.login.LoginModel
 import br.com.souzabrunoj.domain.data.response.position.PositionModel
@@ -21,11 +23,15 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
     private val login = MutableLiveData<ViewState<LoginModel>>()
     private val tips = MutableLiveData<ViewState<TipModel>>()
     private val keys = MutableLiveData<ViewState<Unit>>()
+    private val like = MutableLiveData<Unit>()
+    private val unlike = MutableLiveData<Unit>()
 
     fun positionsObserver(): LiveData<ViewState<List<PositionModel>>> = positions
     fun loginObserver(): LiveData<ViewState<LoginModel>> = login
     fun tipObserver(): LiveData<ViewState<TipModel>> = tips
     fun keysObserver(): LiveData<ViewState<Unit>> = keys
+    fun likeObserver(): LiveData<Unit> = like
+    fun unlikeObserver(): LiveData<Unit> = unlike
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate() {
@@ -108,13 +114,17 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
 
     fun sendTipSurvey(interactionType: String) {
         viewModelScope.launch {
-            repository.sendTipSurvey(tipId = tip.id, interactionType = interactionType).either(::handleTipSurveyFailure, ::handTipSurveySuccess)
+            repository.sendTipSurvey(tipId = tip.id, interactionType = interactionType)
+                .either(::handleTipSurveyFailure) { handTipSurveySuccess(it, interactionType) }
         }
     }
 
     @Suppress("UNUSED_PARAMETER")
-    private fun handTipSurveySuccess(response: SurveyModel) {
-        tips.postSuccess(tip)
+    private fun handTipSurveySuccess(response: SurveyModel, interactionType: String) {
+        when(interactionType){
+            LIKE_SURVEY -> like.value = Unit
+            UNLIKE_SURVEY -> unlike.value = Unit
+        }
     }
 
     private fun handleTipSurveyFailure(failure: Failure) {
