@@ -76,9 +76,9 @@ class HomeFragment : BaseFragment() {
         viewModel.positionsObserver().observe(viewLifecycleOwner, Observer { state ->
             state?.handleIt(
                 success = { setupRecyclerView(it) },
-                failure = { handleFailure(it) },
-                loading = { container_position_loading.visible() },
-                stopLoading = { container_position_loading.gone() }
+                failure = { handleGetPositionError(it) },
+                loading = { position_loading.visible() },
+                stopLoading = { position_loading.gone() }
             )
         })
 
@@ -103,7 +103,6 @@ class HomeFragment : BaseFragment() {
     private fun setupTip(tip: TipModel) {
         ct_Tips.text = tip.description
         ct_Tips.textButton = tip.button.label
-        ct_Tips.error = true
     }
 
     private fun bindUserData(userData: LoginModel) {
@@ -122,8 +121,9 @@ class HomeFragment : BaseFragment() {
         ct_Tips.error = true
     }
 
-    private fun handleGetPositionError() {
-
+    private fun handleGetPositionError(failure: Failure) {
+        handleFailure(failure)
+        suggestions_container_error.visible()
     }
 
     private fun handleGetTipsError(failure: Failure) {

@@ -87,25 +87,34 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_white_background"
-            android:maxHeight="200dp"
-            android:minHeight="200dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="@id/gl_end"
             app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintTop_toBottomOf="@id/vp_positions_list">
 
             <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/position_loading"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:shimmer_auto_start="true"
+                android:visibility="gone"
                 app:shimmer_highlight_color="@color/white"
                 tools:visibility="visible">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:maxHeight="200dp"
+                    android:minHeight="200dp"
                     android:src="@drawable/shape_rectangle_highlight"
                     tools:ignore="contentDescription" />
             </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <include
+                android:id="@+id/suggestions_container_error"
+                layout="@layout/item_generic_container_error"
+                android:visibility="gone" />
+
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
