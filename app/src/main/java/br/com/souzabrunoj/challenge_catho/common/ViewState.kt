@@ -16,12 +16,12 @@ class ViewState<D>(private val status: ViewStatus, val data: D? = null, val erro
 
         when (this.status) {
             ViewStatus.SUCCESS -> {
-                this.data?.let { success(it) }
                 stopLoading()
+                this.data?.let { success(it) }
             }
             ViewStatus.ERROR -> {
-                this.error?.let { error(it) }
                 stopLoading()
+                this.error?.let { error(it) }
             }
             ViewStatus.LOADING -> {
                 loading()
@@ -31,8 +31,8 @@ class ViewState<D>(private val status: ViewStatus, val data: D? = null, val erro
                 stopLoading()
             }
             ViewStatus.FAILURE -> {
-                this.failure?.let { failure(it) }
                 stopLoading()
+                this.failure?.let { failure(it) }
             }
         }
 
