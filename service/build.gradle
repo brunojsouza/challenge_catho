@@ -20,9 +20,11 @@ android {
 
     buildTypes {
         debug{
+            buildConfigField "Boolean", "ENABLE_MOCK", "true"
             buildConfigField "String", "BASE_URL", "\"http://192.168.0.111:4040/\""
         }
         release {
+            buildConfigField "Boolean", "ENABLE_MOCK", "false"
             buildConfigField "String", "BASE_URL", "\"http://192.168.0.111:4040/\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
