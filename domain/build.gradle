@@ -35,7 +35,7 @@ dependencies {
     implementation ext.libraries.retrofitConverter
 
     testImplementation ext.libraries.junit
-    androidTestImplementation ext.libraries.extJunit
+    testImplementation ext.libraries.extJunit
     androidTestImplementation ext.libraries.espressoCore
 
 }

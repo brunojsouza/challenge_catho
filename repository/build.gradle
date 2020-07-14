@@ -36,7 +36,7 @@ dependencies {
     implementation ext.libraries.coreKtxVersion
 
     testImplementation ext.libraries.junit
-    androidTestImplementation ext.libraries.extJunit
+    testImplementation ext.libraries.extJunit
     androidTestImplementation ext.libraries.espressoCore
 
 }

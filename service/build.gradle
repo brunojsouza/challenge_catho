@@ -49,6 +49,6 @@ dependencies {
     api ext.libraries.coroutinesAndroid
 
     testImplementation ext.libraries.junit
-    androidTestImplementation ext.libraries.extJunit
+    testImplementation ext.libraries.extJunit
     androidTestImplementation ext.libraries.espressoCore
 }
