@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set>
     <translate xmlns:android="http://schemas.android.com/apk/res/android"
-        android:duration="250"
+        android:duration="@integer/duration_animation_transition_between_fragments"
         android:fromXDelta="100%"
         android:interpolator="@android:anim/decelerate_interpolator"
         android:toXDelta="0"/>
