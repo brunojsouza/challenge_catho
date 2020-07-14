@@ -12,7 +12,6 @@ import br.com.souzabrunoj.challenge_catho.common.*
 import br.com.souzabrunoj.challenge_catho.common.Constants.LIKE_SURVEY
 import br.com.souzabrunoj.challenge_catho.common.Constants.UNLIKE_SURVEY
 import br.com.souzabrunoj.challenge_catho.presentation.HomeViewModel
-import br.com.souzabrunoj.challenge_catho.ui.HomeFragmentDirections
 import br.com.souzabrunoj.challenge_catho.ui.adapter.PositionsAdapter
 import br.com.souzabrunoj.challenge_catho.ui.base.BaseFragment
 import br.com.souzabrunoj.domain.common.Failure
