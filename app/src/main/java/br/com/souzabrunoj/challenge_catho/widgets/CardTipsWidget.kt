@@ -8,9 +8,8 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import br.com.souzabrunoj.challenge_catho.R
 import br.com.souzabrunoj.challenge_catho.common.changeVisibility
+import br.com.souzabrunoj.challenge_catho.common.onClick
 import kotlinx.android.synthetic.main.widget_card_tips.view.*
-
-typealias onClick = (() -> Unit)
 
 class CardTipsWidget @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
