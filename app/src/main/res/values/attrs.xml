@@ -3,6 +3,7 @@
     <declare-styleable name="GeneralAttributes">
         <attr name="text" format="string" />
         <attr name="loading" format="boolean" />
+        <attr name="error" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="CardTipsWidget">
@@ -13,11 +14,13 @@
         <attr name="button_background" format="reference" />
         <attr name="button_text_color" format="color" />
         <attr name="loading" />
+        <attr name="error" />
     </declare-styleable>
 
     <declare-styleable name="TextViewWidget">
         <attr name="android:textColor" />
         <attr name="text" />
         <attr name="loading" />
+        <attr name="error" />
     </declare-styleable>
 </resources>

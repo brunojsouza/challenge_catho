@@ -21,6 +21,7 @@ class TextViewWidget @JvmOverloads constructor(
             text = typeArray.getString(R.styleable.TextViewWidget_text)
             loading = typeArray.getBoolean(R.styleable.TextViewWidget_loading, false)
             textColor = typeArray.getColor(R.styleable.TextViewWidget_android_textColor, ContextCompat.getColor(context, R.color.white))
+            error = typeArray.getBoolean(R.styleable.TextViewWidget_error, false)
             typeArray.recycle()
         }
     }
@@ -35,6 +36,13 @@ class TextViewWidget @JvmOverloads constructor(
     var loading: Boolean = false
         set(value) {
             container_loading.changeVisibility(value)
+            tv_text.changeVisibility(value.not())
+            field = value
+        }
+
+    var error: Boolean = false
+        set(value) {
+            container_error.changeVisibility(value)
             tv_text.changeVisibility(value.not())
             field = value
         }

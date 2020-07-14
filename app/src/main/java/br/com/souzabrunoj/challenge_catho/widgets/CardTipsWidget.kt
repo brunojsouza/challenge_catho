@@ -31,6 +31,7 @@ class CardTipsWidget @JvmOverloads constructor(
             buttonTextColor = typeArray.getColor(R.styleable.CardTipsWidget_button_text_color, ContextCompat.getColor(context, R.color.white))
             buttonBackground = typeArray.getResourceId(R.styleable.CardTipsWidget_button_background, R.drawable.bg_white_background)
             loading = typeArray.getBoolean(R.styleable.CardTipsWidget_loading,false)
+            error = typeArray.getBoolean(R.styleable.CardTipsWidget_error,false)
 
             typeArray.recycle()
         }
@@ -53,6 +54,13 @@ class CardTipsWidget @JvmOverloads constructor(
     var loading: Boolean = false
         set(value) {
             sm_container_loading.changeVisibility(value)
+            gp_view_container.changeVisibility(value.not())
+            field = value
+        }
+
+    var error: Boolean = false
+        set(value) {
+            container_error.changeVisibility(value)
             gp_view_container.changeVisibility(value.not())
             field = value
         }

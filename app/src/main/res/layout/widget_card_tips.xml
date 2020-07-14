@@ -30,7 +30,6 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="tv_title,vi_divider,bt_check_cv,tv_like_label,iv_like,iv_unlike" />
 
-
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="0dp"
@@ -132,5 +131,15 @@
                 android:src="@drawable/shape_rectangle_highlight"
                 tools:ignore="contentDescription" />
         </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <include
+            android:id="@+id/container_error"
+            layout="@layout/item_generic_container_error"
+            android:minHeight="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>
