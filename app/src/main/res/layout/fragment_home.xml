@@ -13,7 +13,7 @@
         android:paddingTop="@dimen/view_margin_small"
         android:animateLayoutChanges="true"
         android:paddingBottom="@dimen/view_margin_small"
-        tools:context=".ui.HomeFragment">
+        tools:context=".ui.home.HomeFragment">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_start"

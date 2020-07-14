@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home_fragment"
-        android:name="br.com.souzabrunoj.challenge_catho.ui.HomeFragment"
+        android:name="br.com.souzabrunoj.challenge_catho.ui.home.HomeFragment"
         android:label="home_fragment"
         tools:layout="@layout/fragment_home">
         <action
