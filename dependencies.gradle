@@ -34,6 +34,8 @@ ext {
     junitVersion = '4.12'
     extJunitVersion = '1.1.1'
     espressoCoreVersion = '3.2.0'
+    robolectricVersion = '4.3.1'
+    assertkJvmVersion = '0.22'
 
     //Libs
     libraries = [
@@ -44,6 +46,8 @@ ext {
             junit                       : "junit:junit:$junitVersion",
             extJunit                    : "androidx.test.ext:junit:$extJunitVersion",
             espressoCore                : "androidx.test.espresso:espresso-core:$espressoCoreVersion",
+            robolectric                 : "org.robolectric:robolectric:$robolectricVersion",
+            assertkJvm                  : "com.willowtreeapps.assertk:assertk-jvm:$assertkJvmVersion",
             detektFormatting            : "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion",
             koinCore                    : "org.koin:koin-core:$koinVersion",
             koinViewModel               : "org.koin:koin-android-viewmodel:$koinVersion",

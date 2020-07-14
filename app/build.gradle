@@ -36,6 +36,12 @@ android {
         experimental = true
     }
 
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -68,8 +74,9 @@ dependencies {
     implementation ext.libraries.koinViewModel
     implementation ext.libraries.shimmer
 
-    testImplementation ext.libraries.junit
-    androidTestImplementation ext.libraries.extJunit
+    testImplementation ext.libraries.robolectric
+    testImplementation ext.libraries.assertkJvm
+    testImplementation ext.libraries.extJunit
     androidTestImplementation ext.libraries.espressoCore
 
 }
