@@ -48,7 +48,7 @@ class TextViewWidget @JvmOverloads constructor(
         }
 
     @ColorRes
-    private var textColor: Int? = null
+    var textColor: Int? = null
         set(value) {
             value?.let { tv_text.setTextColor(it) }
             field = value
