@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:paddingTop="@dimen/view_margin_small"
+        android:animateLayoutChanges="true"
         android:paddingBottom="@dimen/view_margin_small"
         tools:context=".ui.HomeFragment">
 
@@ -140,17 +141,20 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@id/gl_end"
-            app:layout_constraintEnd_toStartOf="@id/vi_tips_icon"
+            app:layout_constraintEnd_toStartOf="@id/iv_tips_icon"
             app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintTop_toBottomOf="@id/tab_layout" />
 
-        <View
-            android:id="@+id/vi_tips_icon"
-            android:layout_width="20dp"
-            android:layout_height="3dp"
-            android:background="@color/white"
+        <ImageView
+            android:id="@+id/iv_tips_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_rectangle_bottom_sheet"
+            android:tint="@color/white"
+            android:padding="@dimen/view_margin_small"
+            tools:ignore="contentDescription"
             app:layout_constraintBottom_toBottomOf="@id/tv_tips_label"
-            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_tips_label"
             app:layout_constraintTop_toTopOf="@id/tv_tips_label" />
 
