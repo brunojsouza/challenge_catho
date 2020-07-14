@@ -66,7 +66,7 @@ class CardTipsWidget @JvmOverloads constructor(
 
 
     @DrawableRes
-    private var likeIcon: Int? = null
+    var likeIcon: Int? = null
         set(value) {
             value?.let {
                 iv_like.setImageResource(it)
@@ -75,7 +75,7 @@ class CardTipsWidget @JvmOverloads constructor(
         }
 
     @DrawableRes
-    private var unlikeIcon: Int? = null
+    var unlikeIcon: Int? = null
         set(value) {
             value?.let {
                 iv_unlike.setImageResource(it)
@@ -84,14 +84,14 @@ class CardTipsWidget @JvmOverloads constructor(
         }
 
     @ColorRes
-    private var buttonTextColor: Int? = null
+    var buttonTextColor: Int? = null
     set(value) {
         value?.let { bt_check_cv.setTextColor(it) }
         field = value
     }
 
     @DrawableRes
-    private var buttonBackground: Int? = null
+    var buttonBackground: Int? = null
         set(value) {
             value?.let { bt_check_cv.background = ContextCompat.getDrawable(context, it)}
             field = value
