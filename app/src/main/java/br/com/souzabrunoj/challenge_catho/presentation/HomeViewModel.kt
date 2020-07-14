@@ -1,12 +1,12 @@
 package br.com.souzabrunoj.challenge_catho.presentation
 
 import androidx.lifecycle.*
+import br.com.souzabrunoj.challenge_catho.common.Constants.LIKE_SURVEY
+import br.com.souzabrunoj.challenge_catho.common.Constants.UNLIKE_SURVEY
 import br.com.souzabrunoj.challenge_catho.common.ViewState
 import br.com.souzabrunoj.challenge_catho.common.postFailure
 import br.com.souzabrunoj.challenge_catho.common.postLoading
 import br.com.souzabrunoj.challenge_catho.common.postSuccess
-import br.com.souzabrunoj.challenge_catho.ui.LIKE_SURVEY
-import br.com.souzabrunoj.challenge_catho.ui.UNLIKE_SURVEY
 import br.com.souzabrunoj.domain.common.Failure
 import br.com.souzabrunoj.domain.data.response.login.LoginModel
 import br.com.souzabrunoj.domain.data.response.position.PositionModel

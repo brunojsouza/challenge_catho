@@ -9,6 +9,8 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import br.com.souzabrunoj.challenge_catho.R
 import br.com.souzabrunoj.challenge_catho.common.*
+import br.com.souzabrunoj.challenge_catho.common.Constants.LIKE_SURVEY
+import br.com.souzabrunoj.challenge_catho.common.Constants.UNLIKE_SURVEY
 import br.com.souzabrunoj.challenge_catho.presentation.HomeViewModel
 import br.com.souzabrunoj.challenge_catho.ui.adapter.PositionsAdapter
 import br.com.souzabrunoj.challenge_catho.ui.base.BaseFragment
@@ -20,8 +22,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-const val LIKE_SURVEY = "like"
-const val UNLIKE_SURVEY = "dislike"
 
 class HomeFragment : BaseFragment() {
 
