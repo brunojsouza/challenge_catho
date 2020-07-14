@@ -1,6 +1,5 @@
 package br.com.souzabrunoj.challenge_catho.presentation
 
-import android.os.Handler
 import androidx.lifecycle.*
 import br.com.souzabrunoj.challenge_catho.common.ViewState
 import br.com.souzabrunoj.challenge_catho.common.postFailure
@@ -14,17 +13,23 @@ import br.com.souzabrunoj.domain.data.response.position.PositionModel
 import br.com.souzabrunoj.domain.data.response.tips.TipModel
 import br.com.souzabrunoj.domain.data.response.tips.survey.SurveyModel
 import br.com.souzabrunoj.repository.Repository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class HomeViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
+    private val dispatcher = Dispatchers.Main
     private lateinit var tip: TipModel
+    private var tipsList = mutableListOf<TipModel>()
     private val positions = MutableLiveData<ViewState<List<PositionModel>>>()
     private val login = MutableLiveData<ViewState<LoginModel>>()
     private val tips = MutableLiveData<ViewState<TipModel>>()
     private val keys = MutableLiveData<ViewState<Unit>>()
     private val like = MutableLiveData<Unit>()
     private val unlike = MutableLiveData<Unit>()
+    private val showRemoveTipsButton = MutableLiveData<Boolean>()
 
     fun positionsObserver(): LiveData<ViewState<List<PositionModel>>> = positions
     fun loginObserver(): LiveData<ViewState<LoginModel>> = login
@@ -32,6 +37,7 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
     fun keysObserver(): LiveData<ViewState<Unit>> = keys
     fun likeObserver(): LiveData<Unit> = like
     fun unlikeObserver(): LiveData<Unit> = unlike
+    fun showRemoveTipsButtonObserver(): LiveData<Boolean> = showRemoveTipsButton
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate() {
@@ -57,11 +63,9 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
         login.postLoading()
         tips.postLoading()
         positions.postLoading()
-        Handler().postDelayed({
-            viewModelScope.launch {
-                repository.doLogin("ee09bd39-4ca2-47ac-9c5e-9c57ba5a26dc").either(::handleLoginFailure, ::handleLoginSuccess)
-            }
-        }, 2000L)
+        viewModelScope.launch {
+            repository.doLogin("ee09bd39-4ca2-47ac-9c5e-9c57ba5a26dc").either(::handleLoginFailure, ::handleLoginSuccess)
+        }
     }
 
     private fun handleLoginSuccess(response: LoginModel) {
@@ -75,13 +79,10 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
     }
 
     private fun getPositions() {
-        Handler().postDelayed(
-            {
-                viewModelScope.launch {
-                    repository.getPositions().either(::handleGetPositionsFailure, ::handleGetPositionsSuccess)
-                }
-            }, 2000L
-        )
+        viewModelScope.launch {
+            delay(1000)
+            repository.getPositions().either(::handleGetPositionsFailure, ::handleGetPositionsSuccess)
+        }
     }
 
     private fun handleGetPositionsSuccess(response: List<PositionModel>) {
@@ -93,19 +94,15 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
     }
 
     private fun getTips() {
-        Handler().postDelayed(
-            {
-                viewModelScope.launch {
-                    repository.getTips().either(::handleGetTipsFailure, ::handGetTipsSuccess)
-                }
-            }, 3000L
-        )
+        viewModelScope.launch {
+            delay(2000)
+            repository.getTips().either(::handleGetTipsFailure, ::handGetTipsSuccess)
+        }
     }
 
     private fun handGetTipsSuccess(response: List<TipModel>) {
-        val position = Random.nextInt(0, response.size)
-        tip = response[position]
-        tips.postSuccess(tip)
+        tipsList.addAll(response)
+        choiceTipToShow()
     }
 
     private fun handleGetTipsFailure(failure: Failure) {
@@ -121,7 +118,7 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
 
     @Suppress("UNUSED_PARAMETER")
     private fun handTipSurveySuccess(response: SurveyModel, interactionType: String) {
-        when(interactionType){
+        when (interactionType) {
             LIKE_SURVEY -> like.value = Unit
             UNLIKE_SURVEY -> unlike.value = Unit
         }
@@ -131,5 +128,23 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
         tips.postFailure(failure)
     }
 
+    private fun choiceTipToShow() {
+        val position = getRandomNumber(end = tipsList.size)
+        tip = tipsList[position]
+        tips.postSuccess(tip)
+        showRemoveTipsButton.value = tipsList.size > 1
+    }
+
+    fun showNextTips() {
+        tips.postLoading()
+        GlobalScope.launch(context = dispatcher) {
+            delay(1000)
+            tipsList.firstOrNull { it.id == tip.id }?.let { tipsList.remove(it) }
+            choiceTipToShow()
+        }
+    }
+
     fun getTipUrl() = tip.button.url
+
+    private fun getRandomNumber(start: Int = 0, end: Int): Int = Random.nextInt(start, end)
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import br.com.souzabrunoj.challenge_catho.R
 import br.com.souzabrunoj.challenge_catho.common.*
@@ -52,12 +53,12 @@ class HomeFragment : BaseFragment() {
                 navController.navigate(HomeFragmentDirections.fromHomeToWebVewFragment(url = it))
             }
         }
-        ct_Tips.likeClick = {
-           viewModel.sendTipSurvey(LIKE_SURVEY)
-        }
-        ct_Tips.unLikeClick = {
-            viewModel.sendTipSurvey(UNLIKE_SURVEY)
-        }
+
+        ct_Tips.likeClick = { viewModel.sendTipSurvey(LIKE_SURVEY) }
+
+        ct_Tips.unLikeClick = { viewModel.sendTipSurvey(UNLIKE_SURVEY) }
+
+        iv_tips_icon.setOnClickListener { viewModel.showNextTips() }
     }
 
     private fun addObservers() {
@@ -101,6 +102,10 @@ class HomeFragment : BaseFragment() {
         viewModel.unlikeObserver().observe(viewLifecycleOwner, Observer {
             ct_Tips.changeUnLikeImageIcon(R.color.red)
             ct_Tips.changeLikeImageIcon(R.color.gray)
+        })
+
+        viewModel.showRemoveTipsButtonObserver().observe(viewLifecycleOwner, Observer {
+            iv_tips_icon.isVisible = it
         })
     }
 
