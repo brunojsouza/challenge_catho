@@ -20,10 +20,12 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
     private val positions = MutableLiveData<ViewState<List<PositionModel>>>()
     private val login = MutableLiveData<ViewState<LoginModel>>()
     private val tips = MutableLiveData<ViewState<TipModel>>()
+    private val keys = MutableLiveData<ViewState<Unit>>()
 
     fun positionsObserver(): LiveData<ViewState<List<PositionModel>>> = positions
     fun loginObserver(): LiveData<ViewState<LoginModel>> = login
     fun tipObserver(): LiveData<ViewState<TipModel>> = tips
+    fun keysObserver(): LiveData<ViewState<Unit>> = keys
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate() {
@@ -42,7 +44,7 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
     }
 
     private fun handleGetApiFailure(failure: Failure) {
-        login.postFailure(failure)
+        keys.postFailure(failure)
     }
 
     private fun doLogin() {
