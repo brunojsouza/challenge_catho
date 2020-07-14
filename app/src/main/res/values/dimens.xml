@@ -13,4 +13,6 @@
     <dimen name="button_height">40dp</dimen>
 
     <dimen name="border_bottom_sheet">@dimen/corner_radius_default</dimen>
+
+    <item name="duration_animation_transition_between_fragments" type="integer">250</item>
 </resources>

@@ -48,7 +48,9 @@ class HomeFragment : BaseFragment() {
 
     private fun setListeners() {
         ct_Tips.buttonClick = {
-            Toast.makeText(requireContext(), getString(R.string.cv_sent), Toast.LENGTH_SHORT).show()
+            viewModel.getTipUrl().takeIf { it.isNotEmpty() }?.let {
+                navController.navigate(HomeFragmentDirections.fromHomeToWebVewFragment(url = it))
+            }
         }
         ct_Tips.likeClick = {
            viewModel.sendTipSurvey(LIKE_SURVEY)

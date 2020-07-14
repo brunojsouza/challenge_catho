@@ -9,6 +9,27 @@
         android:id="@+id/home_fragment"
         android:name="br.com.souzabrunoj.challenge_catho.ui.HomeFragment"
         android:label="home_fragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/from_home_to_web_vewFragment"
+            app:destination="@id/web_view_fragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"
+            app:popUpTo="@id/home_fragment" />
 
+    </fragment>
+
+    <fragment
+        android:id="@+id/web_view_fragment"
+        android:name="br.com.souzabrunoj.challenge_catho.ui.WebViewFragment"
+        android:label="book_details_fragment"
+        tools:layout="@layout/fragment_web_view">
+
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
 </navigation>
