@@ -130,4 +130,6 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
     private fun handleTipSurveyFailure(failure: Failure) {
         tips.postFailure(failure)
     }
+
+    fun getTipUrl() = tip.button.url
 }
