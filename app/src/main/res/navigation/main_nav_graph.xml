@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/web_view_fragment"
-        android:name="br.com.souzabrunoj.challenge_catho.ui.WebViewFragment"
+        android:name="br.com.souzabrunoj.challenge_catho.ui.flow.WebViewFragment"
         android:label="book_details_fragment"
         tools:layout="@layout/fragment_web_view">
 
