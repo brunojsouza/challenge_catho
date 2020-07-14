@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:drawableTop="@drawable/ic_error"
     android:gravity="center"
+    android:drawablePadding="@dimen/view_margin_xsmall"
     android:padding="@dimen/view_margin_small"
     android:background="@drawable/bg_white_background"
     android:text="@string/generic_error_message"

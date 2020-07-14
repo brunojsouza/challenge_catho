@@ -130,6 +130,7 @@ class HomeFragment : BaseFragment() {
         tv_welcome_label.error = true
         ct_Tips.loading = false
         iv_profile_image.gone()
+        suggestions_container_error.visible()
         ct_Tips.error = true
     }
 
