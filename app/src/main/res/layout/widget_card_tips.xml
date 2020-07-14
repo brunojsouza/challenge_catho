@@ -87,10 +87,10 @@
 
         <ImageView
             android:id="@+id/iv_like"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/view_margin_small"
-            android:padding="@dimen/view_margin_small"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="@dimen/view_margin_xsmall"
+            android:padding="@dimen/view_margin_xsmall"
             app:layout_constraintBottom_toBottomOf="@id/bt_check_cv"
             app:layout_constraintEnd_toStartOf="@+id/iv_unlike"
             app:layout_constraintHorizontal_bias="0.5"
@@ -101,9 +101,9 @@
 
         <ImageView
             android:id="@+id/iv_unlike"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/view_margin_small"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/view_margin_xsmall"
             app:layout_constraintBottom_toBottomOf="@id/iv_like"
             app:layout_constraintEnd_toEndOf="@id/gl_end"
             app:layout_constraintHorizontal_bias="0.5"

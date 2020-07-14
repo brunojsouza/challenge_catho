@@ -65,17 +65,22 @@ class CardTipsWidget @JvmOverloads constructor(
             field = value
         }
 
+
     @DrawableRes
     private var likeIcon: Int? = null
         set(value) {
-            value?.let { iv_like.background = ContextCompat.getDrawable(this.context, it) }
+            value?.let {
+                iv_like.setImageResource(it)
+            }
             field = value
         }
 
     @DrawableRes
     private var unlikeIcon: Int? = null
         set(value) {
-            value?.let { iv_unlike.background = ContextCompat.getDrawable(this.context, it) }
+            value?.let {
+                iv_unlike.setImageResource(it)
+            }
             field = value
         }
 
@@ -97,5 +102,13 @@ class CardTipsWidget @JvmOverloads constructor(
         bt_check_cv.setOnClickListener { buttonClick?.invoke() }
         iv_like.setOnClickListener { likeClick?.invoke() }
         iv_unlike.setOnClickListener { unLikeClick?.invoke() }
+    }
+
+    fun changeLikeImageIcon(@ColorRes color: Int){
+        iv_like.setColorFilter(ContextCompat.getColor(context, color))
+    }
+
+    fun changeUnLikeImageIcon(@ColorRes color: Int){
+        iv_unlike.setColorFilter(ContextCompat.getColor(context, color))
     }
 }
