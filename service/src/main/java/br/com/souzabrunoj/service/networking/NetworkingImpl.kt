@@ -19,6 +19,6 @@ class NetworkingImpl(private val webService: WebService) : Networking, BaseNetwo
 
     override suspend fun getTips(apiKey: String): List<TipResponse> = /*getTipsFromMock()*/ doRequest { webService.getTips(apiKey) }
 
-    override suspend fun sendTipSurvey(apiKey: String, tipId: String, interactionType: String): SurveyResponse =
+    override suspend fun sendTipSurvey(apiKey: String, tipId: String, interactionType: String): SurveyResponse = /*sendTipSurveyFromMock()*/
         doRequest { webService.sendTipSurvey(apiKey, tipId, interactionType) }
 }
