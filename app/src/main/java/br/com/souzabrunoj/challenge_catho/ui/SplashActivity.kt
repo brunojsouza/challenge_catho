@@ -2,18 +2,22 @@ package br.com.souzabrunoj.challenge_catho.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import br.com.souzabrunoj.challenge_catho.R
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        Handler().postDelayed({
+        GlobalScope.launch(context = Dispatchers.Main) {
+            delay(2000)
             startHome()
-        }, 2000L)
+        }
     }
 
     private fun startHome() {
