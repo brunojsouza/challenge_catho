@@ -8,7 +8,7 @@ import org.koin.core.KoinComponent
 import org.koin.core.get
 
 abstract class BaseNetworking : KoinComponent {
-    suspend fun <R : Any> doRequest(block: Block<R>): R {
+    suspend fun <R : Any> safeApiCall(block: Block<R>): R {
         var response: R? = null
         return try {
             checkNetworkConnection()

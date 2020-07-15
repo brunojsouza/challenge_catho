@@ -51,4 +51,12 @@ dependencies {
     testImplementation ext.libraries.junit
     testImplementation ext.libraries.extJunit
     androidTestImplementation ext.libraries.espressoCore
+    
+////////
+    testImplementation ext.libraries.assertkJvm
+
+    testImplementation "io.mockk:mockk:1.10.0"
+    testImplementation "com.squareup.okhttp3:mockwebserver:4.8.0"
+    testImplementation 'org.koin:koin-test:2.0.1'
+    implementation ext.libraries.koinCore
 }
