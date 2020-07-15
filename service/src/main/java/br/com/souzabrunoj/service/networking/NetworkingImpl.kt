@@ -11,7 +11,7 @@ import br.com.souzabrunoj.service.networking.data.remote.TipResponse
 
 class NetworkingImpl(private val webService: WebService) : Networking, BaseNetworking() {
 
-    override suspend fun getApiKey(): KeyResponse = if (BuildConfig.ENABLE_MOCK) doApiKeysFromMock() else doRequest { webService.getApiKey() }
+    override suspend fun getApiKey(): KeyResponse = if (BuildConfig.ENABLE_MOCK) getApiKeysFromMock() else doRequest { webService.getApiKey() }
 
     override suspend fun doLogin(apiKey: String, userId: String): LoginResponse = if (BuildConfig.ENABLE_MOCK) doLoginFromMock() else
         doRequest { webService.doLogin(apiKey, userId) }

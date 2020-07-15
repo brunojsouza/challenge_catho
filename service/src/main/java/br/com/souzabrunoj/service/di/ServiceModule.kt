@@ -1,7 +1,6 @@
 package br.com.souzabrunoj.service.di
 
 import br.com.souzabrunoj.service.BuildConfig
-import br.com.souzabrunoj.service.common.SafeResponse
 import br.com.souzabrunoj.service.core.RequestInterceptor
 import br.com.souzabrunoj.service.core.WebServiceFactory
 import br.com.souzabrunoj.service.networking.Networking
@@ -12,7 +11,6 @@ import br.com.souzabrunoj.service.networking.data.local.PreferencesService
 import org.koin.dsl.module
 
 val serviceModule = module {
-    single { SafeResponse() }
     single<PreferencesService> { PreferenceServiceImpl(context = get()) }
     single { RequestInterceptor(get()) }
     single { WebServiceFactory.createOkHttpClient(get()) }
