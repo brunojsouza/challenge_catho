@@ -2,6 +2,7 @@ package br.com.souzabrunoj.service.networking
 
 import br.com.souzabrunoj.service.BuildConfig
 import br.com.souzabrunoj.service.common.BaseNetworking
+import br.com.souzabrunoj.service.common.networking_connection.NetworkingConnection
 import br.com.souzabrunoj.service.networking.data.key.KeyResponse
 import br.com.souzabrunoj.service.networking.data.mock.*
 import br.com.souzabrunoj.service.networking.data.remote.LoginResponse
@@ -9,7 +10,7 @@ import br.com.souzabrunoj.service.networking.data.remote.PositionResponse
 import br.com.souzabrunoj.service.networking.data.remote.SurveyResponse
 import br.com.souzabrunoj.service.networking.data.remote.TipResponse
 
-class NetworkingImpl(private val webService: WebService) : Networking, BaseNetworking() {
+class NetworkingImpl(private val webService: WebService, checkNetworkingConnection: NetworkingConnection) : Networking, BaseNetworking(checkNetworkingConnection) {
 
     override suspend fun getApiKey(): KeyResponse = if (BuildConfig.ENABLE_MOCK) getApiKeysFromMock() else safeApiCall { webService.getApiKey() }
 

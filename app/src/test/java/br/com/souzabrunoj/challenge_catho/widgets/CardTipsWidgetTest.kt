@@ -34,7 +34,7 @@ class CardTipsWidgetTest {
     }
 
     @After
-    fun cleanUp(){
+    fun tearDown(){
         stopKoin()
     }
 

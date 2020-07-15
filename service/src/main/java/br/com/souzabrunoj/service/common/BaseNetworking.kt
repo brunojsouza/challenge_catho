@@ -1,13 +1,11 @@
 package br.com.souzabrunoj.service.common
 
-import android.content.Context
-import br.com.souzabrunoj.domain.common.KoinInjector
 import br.com.souzabrunoj.domain.common.getStringFromResources
 import br.com.souzabrunoj.service.R
+import br.com.souzabrunoj.service.common.networking_connection.NetworkingConnection
 import org.koin.core.KoinComponent
-import org.koin.core.get
 
-abstract class BaseNetworking : KoinComponent {
+abstract class BaseNetworking(private val networkingConnection: NetworkingConnection) : KoinComponent {
     suspend fun <R : Any> safeApiCall(block: Block<R>): R {
         var response: R? = null
         return try {
@@ -27,7 +25,7 @@ abstract class BaseNetworking : KoinComponent {
 
     @Throws(Throwable::class)
     private fun checkNetworkConnection() {
-        if (KoinInjector.get<Context>().isOnline().not()) {
+        if (networkingConnection.isOnline().not()) {
             throw NetworkConnectionException(getStringFromResources(R.string.network_no_internet_connection))
         }
     }

@@ -32,7 +32,7 @@ class TextViewWidgetTest {
     }
 
     @After
-    fun cleanUp(){
+    fun tearDown(){
         stopKoin()
     }
 
