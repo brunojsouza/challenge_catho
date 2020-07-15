@@ -29,7 +29,7 @@ class HomeViewModel(private val repository: Repository) : ViewModel(), Lifecycle
     private val keys = MutableLiveData<ViewState<Unit>>()
     private val like = MutableLiveData<Unit>()
     private val unlike = MutableLiveData<Unit>()
-    private val showRemoveTipsButton = MutableLiveData<Boolean>()
+    private val showRemoveTipsButton = MutableLiveData<Boolean>(false)
 
     fun positionsObserver(): LiveData<ViewState<List<PositionModel>>> = positions
     fun loginObserver(): LiveData<ViewState<LoginModel>> = login

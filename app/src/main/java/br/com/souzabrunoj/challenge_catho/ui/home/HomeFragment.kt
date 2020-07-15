@@ -68,13 +68,13 @@ class HomeFragment : BaseFragment() {
     private fun addObservers() {
         viewModel.keysObserver().observe(viewLifecycleOwner, Observer { state ->
             state?.handleIt(
-                failure = { handleLoginError() }
+                failure = { handleLoginError(it) }
             )
         })
         viewModel.loginObserver().observe(viewLifecycleOwner, Observer { state ->
             state?.handleIt(
                 success = { bindUserData(it) },
-                failure = { handleLoginError() },
+                failure = { handleLoginError(it) },
                 loading = { tv_welcome_label.loading = true },
                 stopLoading = { tv_welcome_label.loading = false }
             )
@@ -135,7 +135,8 @@ class HomeFragment : BaseFragment() {
         Toast.makeText(requireContext(), "Send CV Click", Toast.LENGTH_SHORT).show()
     }
 
-    private fun handleLoginError() {
+    private fun handleLoginError(failure: Failure) {
+        handleFailure(failure)
         tv_welcome_label.error = true
         ct_Tips.loading = false
         iv_profile_image.gone()
