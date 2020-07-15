@@ -26,8 +26,6 @@ interface WebService {
 
     @POST("survey/tips/{tipId}/{action}")
     suspend fun sendTipSurvey(
-        @Header(X_API_KEY) apiKey: String,
-        @Path("tipId") tipId: String,
-        @Path("action") interactionType: String
+        @Header(X_API_KEY) apiKey: String, @Path("tipId") tipId: String, @Path("action") interactionType: String
     ): SurveyResponse
 }

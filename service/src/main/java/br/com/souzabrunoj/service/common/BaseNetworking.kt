@@ -3,9 +3,8 @@ package br.com.souzabrunoj.service.common
 import br.com.souzabrunoj.domain.common.getStringFromResources
 import br.com.souzabrunoj.service.R
 import br.com.souzabrunoj.service.common.networking_connection.NetworkingConnection
-import org.koin.core.KoinComponent
 
-abstract class BaseNetworking(private val networkingConnection: NetworkingConnection) : KoinComponent {
+abstract class BaseNetworking(private val networkingConnection: NetworkingConnection) {
     suspend fun <R : Any> safeApiCall(block: Block<R>): R {
         var response: R? = null
         return try {

@@ -10,7 +10,7 @@ import br.com.souzabrunoj.service.networking.data.remote.PositionResponse
 import br.com.souzabrunoj.service.networking.data.remote.SurveyResponse
 import br.com.souzabrunoj.service.networking.data.remote.TipResponse
 
-class NetworkingImpl(private val webService: WebService, checkNetworkingConnection: NetworkingConnection) : Networking, BaseNetworking(checkNetworkingConnection) {
+class NetworkingImpl(private val webService: WebService, networkingConnection: NetworkingConnection) : Networking, BaseNetworking(networkingConnection) {
 
     override suspend fun getApiKey(): KeyResponse = if (BuildConfig.ENABLE_MOCK) getApiKeysFromMock() else safeApiCall { webService.getApiKey() }
 
