@@ -1,4 +1,4 @@
-package br.com.souzabrunoj.repository
+package br.com.souzabrunoj.domain.repository
 
 import br.com.souzabrunoj.domain.common.Either
 import br.com.souzabrunoj.domain.common.Failure

@@ -1,16 +1,14 @@
-package br.com.souzabrunoj.repository
+package br.com.souzabrunoj.service.repository
 
 import br.com.souzabrunoj.domain.common.*
 import br.com.souzabrunoj.domain.data.response.login.LoginModel
 import br.com.souzabrunoj.domain.data.response.position.PositionModel
 import br.com.souzabrunoj.domain.data.response.tips.TipModel
 import br.com.souzabrunoj.domain.data.response.tips.survey.SurveyModel
-import br.com.souzabrunoj.repository.mappers.toLoginModel
-import br.com.souzabrunoj.repository.mappers.toPositionModel
-import br.com.souzabrunoj.repository.mappers.toSurveyModel
-import br.com.souzabrunoj.repository.mappers.toTipModel
+import br.com.souzabrunoj.domain.repository.Repository
 import br.com.souzabrunoj.service.networking.Networking
 import br.com.souzabrunoj.service.networking.data.local.PreferencesService
+import br.com.souzabrunoj.service.repository.mappers.*
 
 class RepositoryImpl(private val networking: Networking, private val preferencesService: PreferencesService) : Repository, BaseRepository() {
 
@@ -32,9 +30,9 @@ class RepositoryImpl(private val networking: Networking, private val preferences
         shiftThread { Success(networking.getPositions(preferencesService.getApiKey(SUGGESTION_KEY)).map { it.toPositionModel() }) }
 
     override suspend fun getTips(): Either<Failure.ServiceError, List<TipModel>> =
-        shiftThread { Success(networking.getTips(preferencesService.getApiKey(TIPS_KEY)).map { it.toTipModel() }) }
+        shiftThread { Success(networking.getTips(preferencesService.getApiKey(TIPS_KEY)).map { it.toDomain() }) }
 
     override suspend fun sendTipSurvey(tipId: String, interactionType: String): Either<Failure.ServiceError, SurveyModel> =
-        shiftThread { Success(networking.sendTipSurvey(preferencesService.getApiKey(SURVEY_KEY), tipId, interactionType).toSurveyModel()) }
+        shiftThread { Success(networking.sendTipSurvey(preferencesService.getApiKey(SURVEY_KEY), tipId, interactionType).toDomain()) }
 
 }

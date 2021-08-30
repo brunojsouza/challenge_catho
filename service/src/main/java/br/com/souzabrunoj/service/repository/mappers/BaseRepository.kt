@@ -1,4 +1,4 @@
-package br.com.souzabrunoj.repository
+package br.com.souzabrunoj.service.repository.mappers
 
 import br.com.souzabrunoj.domain.common.Either
 import br.com.souzabrunoj.domain.common.Error

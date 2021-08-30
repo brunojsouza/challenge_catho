@@ -1,4 +1,4 @@
-package br.com.souzabrunoj.repository.mappers
+package br.com.souzabrunoj.service.repository.mappers
 
 import br.com.souzabrunoj.domain.data.response.position.PositionModel
 import br.com.souzabrunoj.service.networking.data.remote.PositionResponse

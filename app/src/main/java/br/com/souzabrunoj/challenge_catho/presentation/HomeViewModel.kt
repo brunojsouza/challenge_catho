@@ -12,7 +12,7 @@ import br.com.souzabrunoj.domain.data.response.login.LoginModel
 import br.com.souzabrunoj.domain.data.response.position.PositionModel
 import br.com.souzabrunoj.domain.data.response.tips.TipModel
 import br.com.souzabrunoj.domain.data.response.tips.survey.SurveyModel
-import br.com.souzabrunoj.repository.Repository
+import br.com.souzabrunoj.domain.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay

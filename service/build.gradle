@@ -51,8 +51,7 @@ dependencies {
     testImplementation ext.libraries.junit
     testImplementation ext.libraries.extJunit
     androidTestImplementation ext.libraries.espressoCore
-    
-////////
+
     testImplementation ext.libraries.assertkJvm
 
     testImplementation "io.mockk:mockk:1.10.0"
